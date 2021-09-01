@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Bandspot</title>
 </head>
 <body>
@@ -14,13 +14,52 @@
         <h1 class="center-align">Bandspot</h1>
     </header>
     <div class="row">
-        <div class="col s12 center-align">This is where we welcome users to the page and share directions</div>
-        <div class="col s6 left-align">This is where we create Spotify login button
+        <div class="col s12 center-align hidden">This is where we welcome users to the page and share directions</div>
+        <div class="col s6 left-align hidden">This is where we create Spotify login button
             <a href="https://accounts.spotify.com/en/login/?continue=https:%2F%2Fopen.spotify.com%2F%3Fl2l%3D1&_ga=2.233817118.1644290936.1630515613-1967894757.1630515613" target="_blank"
             class="waves-effect waves-light btn-large" id="btn login-btn">Login to Spotify</a>
         </div>
-        <div class="col s6 right-align">This is where we have some cool graphic or filler or playlst etc.</div>
+        <div class="col s6 right-align hidden">This is where we have some cool graphic or filler or playlst etc.</div>
       </div>
+        <!--This is where the top # bands will be displayed once Spotify is logged in-->
+        <h2 class="left-align">
+            Top Spotify Artists
+        </h2>
+      <ul class="collection hidden">
+        <li class="collection-item avatar">
+          <i class="small material-icons">queue_music</i>
+          <span class="title">Title</span>
+          <p>First Line <br>
+             Second Line
+          </p>
+          <!--This is where we can link events/concerts in the area-->
+          <a href="#!" class="secondary-content"><i class="material-icons">room</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <i class="small material-icons">queue_music</i>
+          <span class="title">Title</span>
+          <p>First Line <br>
+             Second Line
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">room</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <i class="small material-icons">queue_music</i>
+          <span class="title">Title</span>
+          <p>First Line <br>
+             Second Line
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">room</i></a>
+        </li>
+        <li class="collection-item avatar">
+          <i class="small material-icons">queue_music</i>
+          <span class="title">Title</span>
+          <p>First Line <br>
+             Second Line
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">room</i></a>
+        </li>
+      </ul>
     
 </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
