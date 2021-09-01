@@ -41,34 +41,26 @@ var getCode = function(){
     }
 }
 
-// this will be called from the .then statement of the authorization fetch method
-var handleAuthorizationResponse = function(){
-    if(this.status == 200){
-        var data = JSON.parse(this.responseText);
-        // console.log(data);
-        var data = JSON.parse(this.responseText);
-        if(data.access_token != undefined){
-            access_token = data.access_token;
-            localStorage.setItem("access_token", access_token);
-        }
-        if(data.refresh_token != undefined){
-            refresh_token = data.refresh_token;
-            localStorage.setItem("refresh_token", refresh_token);
-        }
-        getCode();
-        getTopArtists();
-    }else{
-        // console.log(this.responseText);
-    }
-}
-
-var callAuthorizationApi = function(body){
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", TOKEN, true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(client_id + ":" + client_secret));
-    xhr.send(body);
-    xhr.onload = handleAuthorizationResponse;
+var getAuthorization = function(body){
+    fetch(TOKEN, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Basic ' + btoa(client_id + ':' + client_secret),
+        },
+        body: body,
+    })
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(response){
+            access_token = response.access_token;
+            // localStorage.setItem("access_token", access_token);
+            refresh_token = response.refresh_token;
+            // localStorage.setItem("refresh_token", refresh_token);
+            getCode();
+            getTopArtists();
+        });
 }
 
 var fetchAccessToken = function(code){
@@ -76,7 +68,8 @@ var fetchAccessToken = function(code){
     body += "&code=" + code;
     body += "&redirect_uri=" + redirect_uri;
     body += "&client_id=" + client_id;
-    callAuthorizationApi(body);
+    // callAuthorizationApi(body);
+    getAuthorization(body);
 }
 
 // get the spotify users top artists and then call the display function after
