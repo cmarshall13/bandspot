@@ -20,23 +20,21 @@ var requestAuthorization = function(){
     url += "&show_dialog=true";
     url += "&scope=user-library-read user-top-read";
     window.location.href = url;
-};
-
-var fetchAccessToken = function(code){
-    let body = "grant_type=authorization_code";
-    body += "&code=" + code;
-    body += "&redirect_uri=" + encodeURI(redirect_uri);
-    body += "&client_id=" + client_id;
-    callAuthorizationApi(body);
 }
 
-var callAuthorizationApi = function(body){
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", TOKEN, true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.setRequestHeader("Authorization", "Basic " + btoa(client_id + ":" + client_secret));
-    xhr.send(body);
-    xhr.onload = handleAuthorizationResponse;
+var getCode = function(){
+    if(window.location.search.length > 0){
+        let code = null;
+        const queryString = window.location.search;
+        if(queryString.length > 0){
+            const urlParams = new URLSearchParams(queryString);
+            code = urlParams.get("code");
+            // console.log(code);
+            fetchAccessToken(code);
+            window.history.pushState("", "", redirect_uri);
+        }
+        return code;
+    }
 }
 
 var handleAuthorizationResponse = function(){
@@ -59,19 +57,21 @@ var handleAuthorizationResponse = function(){
     }
 }
 
-var getCode = function(){
-    if(window.location.search.length > 0){
-        let code = null;
-        const queryString = window.location.search;
-        if(queryString.length > 0){
-            const urlParams = new URLSearchParams(queryString);
-            code = urlParams.get("code");
-            // console.log(code);
-            fetchAccessToken(code);
-            window.history.pushState("", "", redirect_uri);
-        }
-        return code;
-    }
+var callAuthorizationApi = function(body){
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", TOKEN, true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(client_id + ":" + client_secret));
+    xhr.send(body);
+    xhr.onload = handleAuthorizationResponse;
+}
+
+var fetchAccessToken = function(code){
+    let body = "grant_type=authorization_code";
+    body += "&code=" + code;
+    body += "&redirect_uri=" + encodeURI(redirect_uri);
+    body += "&client_id=" + client_id;
+    callAuthorizationApi(body);
 }
 
 var callApi = function(method, url, body, callback){
@@ -94,7 +94,7 @@ var handleArtistsResponse = function(){
             artist.textContent = d.name;
             top20.appendChild(artist);
         }
-
+        
     }else{
         console.log("didnt return 200");
     }
