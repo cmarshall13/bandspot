@@ -12,31 +12,36 @@ const TOKEN = "https://accounts.spotify.com/api/token";
 const ARTISTS = "https://api.spotify.com/v1/me/top/artists"
 
 
-var requestAuthorization = function(){
-    let url = AUTHORIZE;
+// get the user to authorize our app to access their spotify account
+var requestUserAuthorization = function(){
+    var url = AUTHORIZE;
     url += "?client_id=" + client_id;
     url += "&response_type=code";
-    url += "&redirect_uri=" + encodeURI(redirect_uri);
+    url += "&redirect_uri=" + redirect_uri;
     url += "&show_dialog=true";
     url += "&scope=user-library-read user-top-read";
     window.location.href = url;
 }
 
+// get the code that spotify returns in the url
 var getCode = function(){
+    // check if url bar isnt empty
     if(window.location.search.length > 0){
-        let code = null;
-        const queryString = window.location.search;
+        var code = null;
+        var queryString = window.location.search;
         if(queryString.length > 0){
-            const urlParams = new URLSearchParams(queryString);
+            // isolate the code parameter in the url that was returned from spotify
+            var urlParams = new URLSearchParams(queryString);
             code = urlParams.get("code");
-            // console.log(code);
             fetchAccessToken(code);
+            // update the url space to hide the code parameter
             window.history.pushState("", "", redirect_uri);
         }
         return code;
     }
 }
 
+// this will be called from the .then statement of the authorization fetch method
 var handleAuthorizationResponse = function(){
     if(this.status == 200){
         var data = JSON.parse(this.responseText);
@@ -58,7 +63,7 @@ var handleAuthorizationResponse = function(){
 }
 
 var callAuthorizationApi = function(body){
-    let xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest();
     xhr.open("POST", TOKEN, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.setRequestHeader("Authorization", "Basic " + btoa(client_id + ":" + client_secret));
@@ -67,47 +72,45 @@ var callAuthorizationApi = function(body){
 }
 
 var fetchAccessToken = function(code){
-    let body = "grant_type=authorization_code";
+    var body = "grant_type=authorization_code";
     body += "&code=" + code;
-    body += "&redirect_uri=" + encodeURI(redirect_uri);
+    body += "&redirect_uri=" + redirect_uri;
     body += "&client_id=" + client_id;
     callAuthorizationApi(body);
 }
 
-var callApi = function(method, url, body, callback){
-    let xhr = new XMLHttpRequest();
-    xhr.open(method, url, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", "Bearer " + access_token);
-    xhr.send(body);
-    xhr.onload = callback;
+// get the spotify users top artists and then call the display function after
+var getTopArtists = function(){
+    fetch(ARTISTS, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + access_token,
+        },
+        body: null,
+    })
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(response){
+            displayTopArtists(response.items);
+        });
 }
 
-var handleArtistsResponse = function(){
-    if(this.status == 200){
-        var data = Array.from(JSON.parse(this.responseText).items);
-        // console.log(data);
-
-        for(var d of data){
-            console.log(d.name);
+// this will be called from the .then statement from the top artists fetch request
+var displayTopArtists = function(items){
+        for(var i of items){
+            console.log(i.name);
             var artist = document.createElement("p");
-            artist.textContent = d.name;
+            artist.textContent = i.name;
             top20.appendChild(artist);
         }
-        
-    }else{
-        console.log("didnt return 200");
-    }
-}
-
-var getTopArtists = function(){
-    callApi("GET", ARTISTS, null, handleArtistsResponse)
 }
 
 // button event listener
 start.addEventListener("click", function(event){
     event.preventDefault();
-    requestAuthorization();
+    requestUserAuthorization();
 });
 
 getCode();
