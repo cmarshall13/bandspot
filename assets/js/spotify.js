@@ -93,7 +93,6 @@ var displayTopArtists = function(items){
             artist.textContent = i.name;
             // DOMEl.top20Div.appendChild(artist);
         }
-        console.log(artists);
         populateSelectBox();
 }
 
@@ -104,6 +103,7 @@ var populateSelectBox = function(){
         opt.textContent = a;
         DOMEl.artSelect.appendChild(opt);
     }
+    DOMEl.artSelect.style.display = "initial";
 }
 
 // button event listener
