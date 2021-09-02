@@ -15,6 +15,8 @@ var apiURLs = {
     token: "https://accounts.spotify.com/api/token"
 }
 
+var artists = [];
+
 // get the user to authorize our app to access their spotify account
 var requestUserAuthorization = function(){
     var url = apiURLs.authorize;
@@ -84,11 +86,13 @@ var getTopArtists = function(){
 // this will be called from the .then statement from the top artists fetch request
 var displayTopArtists = function(items){
         for(var i of items){
-            console.log(i.name);
+            // add each artist to the artist array
+            artists.push(i.name);
             var artist = document.createElement("p");
             artist.textContent = i.name;
             DOMEl.top20Div.appendChild(artist);
         }
+        console.log(artists);
 }
 
 // button event listener
