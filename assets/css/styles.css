@@ -2,3 +2,7 @@
     background-color: #1db954;
     font-weight: bold;
 }
+
+#artists-select{
+    display: initial;
+}

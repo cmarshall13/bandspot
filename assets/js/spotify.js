@@ -1,6 +1,7 @@
 var DOMEl = {
     startBtn: document.getElementById("spotify"),
-    top20Div: document.getElementById("top-20")
+    top20Div: document.getElementById("top-20"),
+    artSelect: document.getElementById("artists-select")
 }
 
 var apiData = {
@@ -90,9 +91,19 @@ var displayTopArtists = function(items){
             artists.push(i.name);
             var artist = document.createElement("p");
             artist.textContent = i.name;
-            DOMEl.top20Div.appendChild(artist);
+            // DOMEl.top20Div.appendChild(artist);
         }
         console.log(artists);
+        populateSelectBox();
+}
+
+var populateSelectBox = function(){
+    for(var a of artists){
+        var opt = document.createElement("option");
+        opt.value = a;
+        opt.textContent = a;
+        DOMEl.artSelect.appendChild(opt);
+    }
 }
 
 // button event listener
