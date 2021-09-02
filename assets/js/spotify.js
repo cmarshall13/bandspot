@@ -6,7 +6,9 @@ var DOMEl = {
 var apiData = {
     client_id: "e628ac9cc03a4ae7b5791a502a111c7a",
     client_secret: "5f04cafed0f446d8b129f601eb6d81b1",
-    redirect_uri: "http://127.0.0.1:5500/index.html"
+    redirect_uri: "http://127.0.0.1:5500/index.html",
+    access_token: "",
+    refresh_token: ""
 }
 
 var apiURLs = {
@@ -56,10 +58,8 @@ var getAuthorization = function(code){
             return response.json();
         })
         .then(function(response){
-            access_token = response.access_token;
-            // localStorage.setItem("access_token", access_token);
-            refresh_token = response.refresh_token;
-            // localStorage.setItem("refresh_token", refresh_token);
+            apiData.access_token = response.access_token;
+            apiData.refresh_token = response.refresh_token;
             getAuthCode();
             getTopArtists();
         });
@@ -71,7 +71,7 @@ var getTopArtists = function(){
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + access_token,
+            'Authorization': 'Bearer ' + apiData.access_token,
         },
         body: null,
     })
