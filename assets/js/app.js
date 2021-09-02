@@ -1,21 +1,24 @@
-var start = document.getElementById("spotify");
-var topArtists = document.getElementById("artists");
-var top20 = document.getElementById("top-20");
+var DOMEl = {
+    startBtn: document.getElementById("spotify"),
+    top20Div: document.getElementById("top-20")
+}
 
-var redirect_uri = "http://127.0.0.1:5500/index.html";
+var apiData = {
+    client_id: "e628ac9cc03a4ae7b5791a502a111c7a",
+    client_secret: "5f04cafed0f446d8b129f601eb6d81b1",
+    redirect_uri: "http://127.0.0.1:5500/index.html"
+}
 
-var client_id = "e628ac9cc03a4ae7b5791a502a111c7a";
-var client_secret = "5f04cafed0f446d8b129f601eb6d81b1";
-
-const AUTHORIZE = "https://accounts.spotify.com/authorize";
-const TOKEN = "https://accounts.spotify.com/api/token";
-const ARTISTS = "https://api.spotify.com/v1/me/top/artists"
-
+var apiURLs = {
+    artists: "https://api.spotify.com/v1/me/top/artists",
+    authorize: "https://accounts.spotify.com/authorize",
+    token: "https://accounts.spotify.com/api/token"
+}
 
 // get the user to authorize our app to access their spotify account
 var requestUserAuthorization = function(){
-    var url = AUTHORIZE;
-    url += "?client_id=" + client_id + "&response_type=code" + "&redirect_uri=" + redirect_uri + "&show_dialog=true" + "&scope=user-library-read user-top-read";
+    var url = apiURLs.authorize;
+    url += "?client_id=" + apiData.client_id + "&response_type=code" + "&redirect_uri=" + apiData.redirect_uri + "&show_dialog=true" + "&scope=user-library-read user-top-read";
     window.location.href = url;
 }
 
@@ -31,19 +34,19 @@ var getAuthCode = function(){
             code = urlParams.get("code");
             getAuthorization(code);
             // update the url space to hide the code parameter
-            window.history.pushState("", "", redirect_uri);
+            window.history.pushState("", "", apiData.redirect_uri);
         }
         return code;
     }
 }
 
 var getAuthorization = function(code){
-    var body = "grant_type=authorization_code" + "&code=" + code + "&redirect_uri=" + redirect_uri + "&client_id=" + client_id;
-    fetch(TOKEN, {
+    var body = "grant_type=authorization_code" + "&code=" + code + "&redirect_uri=" + apiData.redirect_uri + "&client_id=" + apiData.client_id;
+    fetch(apiURLs.token, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': 'Basic ' + btoa(client_id + ':' + client_secret),
+            'Authorization': 'Basic ' + btoa(apiData.client_id + ':' + apiData.client_secret),
         },
         body: body,
     })
@@ -62,7 +65,7 @@ var getAuthorization = function(code){
 
 // get the spotify users top artists and then call the display function after
 var getTopArtists = function(){
-    fetch(ARTISTS, {
+    fetch(apiURLs.artists, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -84,14 +87,18 @@ var displayTopArtists = function(items){
             console.log(i.name);
             var artist = document.createElement("p");
             artist.textContent = i.name;
-            top20.appendChild(artist);
+            DOMEl.top20Div.appendChild(artist);
         }
 }
 
 // button event listener
-start.addEventListener("click", function(event){
+DOMEl.startBtn.addEventListener("click", function(event){
     event.preventDefault();
     requestUserAuthorization();
 });
 
-getAuthCode();
+try{
+    getAuthCode();
+}catch(e){
+    console.log(e);
+}
