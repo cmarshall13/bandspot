@@ -3,7 +3,11 @@
     font-weight: bold;
 }
 
-#artists-select,
-#artists-label{
+#months-select,
+#artists-select{
+    display: initial;
+}
+
+#options{
     display: none;
 }

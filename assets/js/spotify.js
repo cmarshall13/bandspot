@@ -1,6 +1,6 @@
 var DOMEl = {
     startBtn: document.getElementById("spotify"),
-    top20Div: document.getElementById("top-20"),
+    optionsDiv: document.getElementById("options"),
     artSelect: document.getElementById("artists-select"),
     loginDiv: document.querySelector("#login"),
     artLabel: document.querySelector("#artists-label")
@@ -93,7 +93,7 @@ var displayTopArtists = function(items){
             artists.push(i.name);
             var artist = document.createElement("p");
             artist.textContent = i.name;
-            // DOMEl.top20Div.appendChild(artist);
+            // DOMEl.optionsDiv.appendChild(artist);
         }
         populateSelectBox();
 }

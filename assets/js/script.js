@@ -11,6 +11,5 @@ var populateSelectBox = function(){
         opt.textContent = a;
         DOMEl.artSelect.appendChild(opt);
     }
-    DOMEl.artSelect.style.display = "initial";
-    DOMEl.artLabel.style.display = "initial";
+    DOMEl.optionsDiv.style.display = "initial";
 }
