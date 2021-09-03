@@ -10,4 +10,12 @@
 
 #options{
     display: none;
+    justify-content: space-evenly;
+}
+
+#options label{
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    padding: 0px 20px;
 }
