@@ -16,7 +16,7 @@ var populateSelectBox = function(){
         opt.textContent = a;
         DOMEl.artSelect.appendChild(opt);
     }
-    DOMEl.optionsDiv.style.display = "initial";
+    DOMEl.optionsDiv.style.display = "flex";
 }
 
 var displayConcertCards = function(month, artist){
