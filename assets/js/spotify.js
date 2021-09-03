@@ -2,8 +2,9 @@ var DOMEl = {
     startBtn: document.getElementById("spotify"),
     optionsDiv: document.getElementById("options"),
     artSelect: document.getElementById("artists-select"),
+    monthSelect: document.getElementById("months-select"),
     loginDiv: document.querySelector("#login"),
-    artLabel: document.querySelector("#artists-label")
+    artLabel: document.querySelector("#artists-label"),
 }
 
 var apiData = {
