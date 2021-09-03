@@ -1,56 +1,55 @@
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 
-        <title>Bandspot</title>
-    </head>
+    <title>Bandspot</title>
+  </head>
 
-    <body>
-        <header>
-            <h1 class="center-align">Bandspot</h1>
-        </header>
+  <body>
+    <header>
+      <h1 class="center-align">Bandspot</h1>
+    </header>
 
-        <div class="container">
-        <div class="row">
-            <div class="col s12 center-align" id="login"> 
-                <p>Login with Spotify to find your favorite artists upcoming concerts!</p>
-                <button class="waves-effect waves-light btn-large" id="spotify" type="submit">Login with Spotify!</button>
-            </div>
-
-            <div id="options" class="col s12 center-align"> 
-                <!-- <p>List of your top 20 Spotify artists:</p> -->
-                <label for="months">Months:</label>
-                <select name="months" id="months-select">
-                    <option value="All">All</option>
-                    <option value="January">January</option>
-                    <option value="February">February</option>
-                    <option value="March">March</option>
-                    <option value="April">April</option>
-                    <option value="May">May</option>
-                    <option value="June">June</option>
-                    <option value="July">July</option>
-                    <option value="August">August</option>
-                    <option value="September">September</option>
-                    <option value="October">October</option>
-                    <option value="November">November</option>
-                    <option value="December">December</option>
-                </select>
-
-                <label for="artists" id="artists-label">Bands:</label>
-                <select name="artists" id="artists-select">
-                    <option value="All">All</option>
-                </select>
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center-align" id="login"> 
+          <p>Login with Spotify to find your favorite artists upcoming concerts!</p>
+          <button class="waves-effect waves-light btn-large" id="spotify" type="submit">Login with Spotify!</button>
         </div>
-        
+
+        <div id="options" class="col s12 center-align"> 
+          <label for="months">Months:</label>
+          <select name="months" id="months-select">
+            <option value="All">All</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
+
+          <label for="artists" id="artists-label">Bands:</label>
+          <select name="artists" id="artists-select">
+            <option value="All">All</option>
+          </select>
+        </div>
+      </div>
     </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="./assets/js/script.js"></script>
-        <script src="./assets/js/spotify.js"></script>
-    </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/spotify.js"></script>
+  </body>
 </html>
