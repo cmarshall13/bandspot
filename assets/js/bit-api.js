@@ -16,10 +16,7 @@ const FETCH_URL_BASE = `https://rest.bandsintown.com/artists/${artistQuery}/even
 2. matchMonthSingleArtist() which searches event data for the specific artist filtered (this is only if user selects both values to filter)
    -- this will search the datetime of the single artist events and display the shows
 
-3. checkUserFilter() which will be a conditional statement checking whether or not the values have changed from the default,
-   and if they have, re-assign variables and pass them to fetch function
-
-4. A fetch function, obviously! The fetch function will be conditional based on user filters:
+3. A fetch function, obviously! The fetch function will be conditional based on user filters:
 
 * CONDITIONS FOR FETCH FUNCTION:
 
@@ -41,30 +38,16 @@ const FETCH_URL_BASE = `https://rest.bandsintown.com/artists/${artistQuery}/even
 
 
 
-
-
 // Placeholder functionality for data fetching
 
-function returnFirst(firstData) {
-   console.log(firstData);
-}
-
-function returnSecond(secondData) {
-   console.log(secondData);
-}
-
 async function loadData() {
-   // Artist and month are pre-supplied options, so error-guarding here is unnecessary
-   return await (await fetch('https://jsonplaceholder.typicode.com/posts/1/comments')).json();
+   return await (await fetch('http://api.ipstack.com/check?access_key=83efe3074e441fc99a26233154d65f0e')).json();
 }
 
 async function displayData() {
    try {
-      // Data will be the parsed fetch result once completed
       data = await loadData();
-
-      returnFirst(data[1].email);
-      returnSecond(data[2].email);
+      console.log(data);
 
    }
    catch (err) {
