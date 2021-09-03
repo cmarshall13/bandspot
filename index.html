@@ -14,52 +14,61 @@
         <h1 class="center-align">Bandspot</h1>
     </header>
     <div class="row">
-        <div class="col s12 center-align hidden">This is where we welcome users to the page and share directions</div>
-        <div class="col s6 left-align hidden">This is where we create Spotify login button
-            <a href="https://accounts.spotify.com/en/login/?continue=https:%2F%2Fopen.spotify.com%2F%3Fl2l%3D1&_ga=2.233817118.1644290936.1630515613-1967894757.1630515613" target="_blank"
-            class="waves-effect waves-light btn-large" id="btn login-btn">Login to Spotify</a>
+        <div class="col s12 center-align hidden">
+          This is where we welcome users to the page and share directions
         </div>
-        <div class="col s6 right-align hidden">This is where we have some cool graphic or filler or playlst etc.</div>
-      </div>
+        <div class="col s12 center-align hidden">
+        <button class="waves-effect waves-light btn-large" id="spotify" type="submit">Login with Spotify!</button>
+        </div>
+    </div>
         <!--This is where the top # bands will be displayed once Spotify is logged in-->
-        <h2 class="left-align">
+        <h2 class="left-align hidden">
             Top Spotify Artists
         </h2>
-      <ul class="collection hidden"> 
-        <li class="collection-item avatar">
-          <i class="small material-icons">queue_music</i>
-          <span class="title">Title</span>
-          <p>First Line <br>
-             Second Line
-          </p>
-          <!--This is where we can link events/concerts in the area-->
-          <a href="#!" class="secondary-content"><i class="material-icons">room</i></a>
-        </li>
-        <li class="collection-item avatar">
-          <i class="small material-icons">queue_music</i>
-          <span class="title">Title</span>
-          <p>First Line <br>
-             Second Line
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">room</i></a>
-        </li>
-        <li class="collection-item avatar">
-          <i class="small material-icons">queue_music</i>
-          <span class="title">Title</span>
-          <p>First Line <br>
-             Second Line
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">room</i></a>
-        </li>
-        <li class="collection-item avatar">
-          <i class="small material-icons">queue_music</i>
-          <span class="title">Title</span>
-          <p>First Line <br>
-             Second Line
-          </p>
-          <a href="#!" class="secondary-content"><i class="material-icons">room</i></a>
-        </li>
-      </ul>
+        <div class="row">
+          <div class="col s6 hidden" id="options">
+            <label for="months">Months:</label>
+            <select name="months" id="months-select">
+              <option value="All">All</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+          </div>
+          <div class="col s6 hidden">
+            <label for="artists" id="artist-label">Bands:</label>
+            <select name="artists" id="artists-select">
+              <option value="All">All</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m7 hidden">
+            <div class="card small">
+              <div class="card-image">
+                <img src="" alt="image of album cover">
+                <span class="card-title">Card Title</span>
+              </div>
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    
     
 </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -69,5 +78,6 @@
     </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="./assets/js/script.js"></script>  
+        <script src="./assets/js/spotify.js"></script>
     </body>
 </html>
