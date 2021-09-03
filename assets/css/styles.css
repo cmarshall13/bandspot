@@ -3,6 +3,7 @@
     font-weight: bold;
 }
 
-#artists-select{
+#artists-select,
+#artists-label{
     display: none;
 }
