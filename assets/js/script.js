@@ -2,6 +2,8 @@ var DOMEl = {
     artSelect: document.getElementById("artists-select"),
     monthSelect: document.getElementById("months-select"),
     spotifyBtn: document.getElementById("spotify"),
+    loginDiv: document.querySelector("#login"),
+    optionsDiv: document.getElementById("options"),
 }
 
 var hideLoginDiv = function(){

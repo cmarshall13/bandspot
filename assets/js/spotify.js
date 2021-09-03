@@ -1,11 +1,3 @@
-var DOMEl = {
-    optionsDiv: document.getElementById("options"),
-    artSelect: document.getElementById("artists-select"),
-    monthSelect: document.getElementById("months-select"),
-    loginDiv: document.querySelector("#login"),
-    artLabel: document.querySelector("#artists-label"),
-}
-
 var apiData = {
     client_id: "e628ac9cc03a4ae7b5791a502a111c7a",
     client_secret: "5f04cafed0f446d8b129f601eb6d81b1",
