@@ -1,6 +1,7 @@
 var DOMEl = {
     artSelect: document.getElementById("artists-select"),
-    monthSelect: document.getElementById("months-select")
+    monthSelect: document.getElementById("months-select"),
+    spotifyBtn: document.getElementById("spotify"),
 }
 
 var hideLoginDiv = function(){
@@ -22,6 +23,11 @@ var populateSelectBox = function(){
 var displayConcertCards = function(month, artist){
     console.log(month, artist);
 }
+
+DOMEl.spotifyBtn.addEventListener("click", function(event){
+    event.preventDefault();
+    requestUserAuthorization();
+});
 
 DOMEl.artSelect.addEventListener("change", function(){
     var month = DOMEl.monthSelect.value;

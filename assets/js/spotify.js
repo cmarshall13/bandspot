@@ -1,5 +1,4 @@
 var DOMEl = {
-    startBtn: document.getElementById("spotify"),
     optionsDiv: document.getElementById("options"),
     artSelect: document.getElementById("artists-select"),
     monthSelect: document.getElementById("months-select"),
@@ -69,7 +68,7 @@ var getAuthorization = function(code){
         });
 }
 
-// get the spotify users top artists and then call the display function after
+// get the spotify users top artists and save to array
 var getTopArtists = function(){
     fetch(apiURLs.artists, {
         method: 'GET',
@@ -83,27 +82,16 @@ var getTopArtists = function(){
             return response.json();
         })
         .then(function(response){
-            displayTopArtists(response.items);
+            updateArtistsArray(response.items);
         });
 }
 
-// this will be called from the .then statement from the top artists fetch request
-var displayTopArtists = function(items){
+var updateArtistsArray = function(items){
         for(var i of items){
-            // add each artist to the artist array
             artists.push(i.name);
-            var artist = document.createElement("p");
-            artist.textContent = i.name;
-            // DOMEl.optionsDiv.appendChild(artist);
         }
         populateSelectBox();
 }
-
-// button event listener
-DOMEl.startBtn.addEventListener("click", function(event){
-    event.preventDefault();
-    requestUserAuthorization();
-});
 
 try{
     getAuthCode();
