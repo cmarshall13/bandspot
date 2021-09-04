@@ -1,4 +1,5 @@
 let artistQuery = '';
+let showDate = '';
 let eventsArray = [];
 const FETCH_URL_BASE = `https://rest.bandsintown.com/artists/${artistQuery}/events/?app_id=yOUrSuP3r3ven7aPp-id`;
 
@@ -6,6 +7,7 @@ function filterShowLocation(artistEvents, userLocation) {
 
    // * Go through the events array for the artist and find all events in which match the region data the user location match
    artistEvents.forEach(event => {
+      console.log(`Before condition statement: ${event[venue].region} and ${userLocation}`);
       if (event[venue].region === userLocation) {
          // Push into the events array if the locations match
          eventsArray.push(event);
@@ -13,6 +15,8 @@ function filterShowLocation(artistEvents, userLocation) {
       // Otherwise, don't push and go to the next iteration
       continue;
    });
+
+
 }
 
 async function fetchArtists(artist) {
@@ -39,5 +43,31 @@ function artistsLoopForFetch() {
       //TODO: This will be a modal instead of an alert
       alert(`Uh oh, something went wrong! ${err}`);
    }
+}
+
+function formatMonth(showDate) {
+   showDate = moment().format('MMMM');
+   return showDate;
+}
+
+
+
+function matchMonthAll(artistList, userLocation) {
+   let dateData = '';
+   let showDate = '';
+
+   // Search through artist show datetime data to match the user location
+   artistsArray.forEach(artist => {
+      // Select data from artist object
+      dateData = artist[datetime];
+      // Store formatted date in variable
+      showDate = formatMonth(dateData);
+
+   });
+
+}
+
+function matchMonthSingleArtist(artist) {
+
 }
 
