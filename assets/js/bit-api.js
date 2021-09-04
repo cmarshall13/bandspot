@@ -1,75 +1,59 @@
-// VARIABLES
-
 let artistQuery = '';
+let artistsArray = [];
+let eventsArray = [];
 const FETCH_URL_BASE = `https://rest.bandsintown.com/artists/${artistQuery}/events/?app_id=yOUrSuP3r3ven7aPp-id`;
 
-// artist and events queries can be left to default or changed easily with variable re-assignment
-// date-time comes with the data response; there can be a function to only show events based on the month matching;
+async function fetchArtists(artist) {
 
-
-/* FUNCTIONS
-
-1. matchMonthAll() which searches event data for each of the ten bands and returns an array of the events in that month
-   -- ie. searches through each artist object's datetime value to see if it matches user filter value; if so, push the event
-      data to the event array, and then display the info in another for loop going through the event array
-
-2. matchMonthSingleArtist() which searches event data for the specific artist filtered (this is only if user selects both values to filter)
-   -- this will search the datetime of the single artist events and display the shows
-
-3. checkUserFilter() which will be a conditional statement checking whether or not the values have changed from the default,
-   and if they have, re-assign variables and pass them to fetch function
-
-4. A fetch function, obviously! The fetch function will be conditional based on user filters:
-
-* CONDITIONS FOR FETCH FUNCTION:
-
-1. No filters chosen; default fetch (all artists stored in an artists array and current month)
--- Get 10 fetches, changing the parameter to the current artist in the array using a for loop
--- Call displayEvents() and pass the data to it
-
-2. Only month chosen, fetch filtered by month value for all artists
--- Default fetch again
--- Call the matchMonthAll() function, passing the response data to it so it can search
--- Call displayEvents and pass the new events array to it
-
-3. Only artist chosen, fetch filtered for current month for specific artist value
--- Fetch based on the single artist query parameter, staying with the current month
-4. Both month and artist chosen, fetch filtered for month and artist values
--- Fetch based on changing both parameters
-
-*/
-
-
-
-
-
-// Placeholder functionality for data fetching
-
-function returnFirst(firstData) {
-   console.log(firstData);
+   // Artist query passed through async for-loop below
+   artistQuery = artist;
+   console.log(`Before fetch: ${artistQuery}`);
+   // This returns the results of a single fetch
+   return await (await fetch(FETCH_URL_BASE)).json();
 }
 
-function returnSecond(secondData) {
-   console.log(secondData);
-}
-
-async function loadData() {
-   // Artist and month are pre-supplied options, so error-guarding here is unnecessary
-   return await (await fetch('https://jsonplaceholder.typicode.com/posts/1/comments')).json();
-}
-
-async function displayData() {
+function artistsLoopForFetch() {
    try {
-      // Data will be the parsed fetch result once completed
-      data = await loadData();
-
-      returnFirst(data[1].email);
-      returnSecond(data[2].email);
-
+      // For each artist in the Spotify array
+      top20Array.forEach(async artist => {
+         // Call fetch function
+         var topArtist = await fetchArtists(artist)
+         // Push artist data into artist object array
+         console.log(`After fetch/before push: ${topArtist}`);
+         eventsArray.push(topArtist);
+      })
+      // Any error in the fetch function or the loop will be caught here
+   } catch (err) {
+      alert(`Uh oh, something went wrong! ${err}`);
    }
-   catch (err) {
-      alert(`Uh oh, something went wrong: ${err}!`);
-   }
-};
+}
 
-displayData();
+// function formatMonth(showDate) {
+//    showDate = moment().format('MMMM');
+//    return showDate;
+// }
+
+// function filterShowLocation(eventsArray, userLocation) {
+
+
+// }
+
+
+// function matchMonthAll(artistList, userLocation) {
+//    let dateData = '';
+//    let showDate = '';
+
+//    // Search through artist show datetime data to match the user location
+//    artistsArray.forEach(artist => {
+//       // Select data from artist object
+//       dateData = artist[datetime];
+//       // Store formatted date in variable
+//       showDate = formatMonth(dateData);
+
+//    });
+
+// }
+
+// function matchMonthSingleArtist(artist) {
+
+// }
