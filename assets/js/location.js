@@ -8,9 +8,9 @@ async function getUserLocation() {
       response = await fetchLocation();
       console.log(`After fetch: ${response}`);
       // Get state initials from user location
-      userLocation = response.region_code;
+      let userLocation = response.region_code;
       // Pass the user location to filter artist events with
-      fetchData(userLocation);
+      artistLoopForFetch(userLocation);
    }
    catch (err) {
       alert(`Uh oh, something went wrong: ${err}!`);
