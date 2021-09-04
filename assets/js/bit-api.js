@@ -1,10 +1,21 @@
 let artistQuery = '';
-let artistsArray = [];
 let eventsArray = [];
 const FETCH_URL_BASE = `https://rest.bandsintown.com/artists/${artistQuery}/events/?app_id=yOUrSuP3r3ven7aPp-id`;
 
-async function fetchArtists(artist) {
+function filterShowLocation(artistEvents, userLocation) {
 
+   // * Go through the events array for the artist and find all events in which match the region data the user location match
+   artistEvents.forEach(event => {
+      if (event[venue].region === userLocation) {
+         // Push into the events array if the locations match
+         eventsArray.push(event);
+      }
+      // Otherwise, don't push and go to the next iteration
+      continue;
+   });
+}
+
+async function fetchArtists(artist) {
    // Artist query passed through async for-loop below
    artistQuery = artist;
    console.log(`Before fetch: ${artistQuery}`);
@@ -15,45 +26,18 @@ async function fetchArtists(artist) {
 function artistsLoopForFetch() {
    try {
       // For each artist in the Spotify array
-      top20Array.forEach(async artist => {
+      topTenArray.forEach(async artist => {
          // Call fetch function
-         var topArtist = await fetchArtists(artist)
+         var artistEvents = await fetchArtists(artist)
          // Push artist data into artist object array
          console.log(`After fetch/before push: ${topArtist}`);
-         eventsArray.push(topArtist);
+         // Match the artist events with the user location
+         filterShowLocation(artistEvents, userLocation);
       })
       // Any error in the fetch function or the loop will be caught here
    } catch (err) {
+      //TODO: This will be a modal instead of an alert
       alert(`Uh oh, something went wrong! ${err}`);
    }
 }
 
-// function formatMonth(showDate) {
-//    showDate = moment().format('MMMM');
-//    return showDate;
-// }
-
-// function filterShowLocation(eventsArray, userLocation) {
-
-
-// }
-
-
-// function matchMonthAll(artistList, userLocation) {
-//    let dateData = '';
-//    let showDate = '';
-
-//    // Search through artist show datetime data to match the user location
-//    artistsArray.forEach(artist => {
-//       // Select data from artist object
-//       dateData = artist[datetime];
-//       // Store formatted date in variable
-//       showDate = formatMonth(dateData);
-
-//    });
-
-// }
-
-// function matchMonthSingleArtist(artist) {
-
-// }
