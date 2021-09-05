@@ -1,6 +1,10 @@
 let artistQuery = '';
 let showDate = '';
+let dateData = '';
 let eventsArray = [];
+let userMonth = document.querySelector('#artists-select').value;
+let userArtist = document.querySelector('#months-select').value;
+
 const FETCH_URL = `https://rest.bandsintown.com/artists/${artistQuery}/events/?app_id=yOUrSuP3r3ven7aPp-id`;
 
 function filterShowLocation(artistEvents, userLocation) {
@@ -26,7 +30,7 @@ async function fetchArtists(artist) {
    return await (await fetch(FETCH_URL)).json();
 }
 
-function artistsLoopForFetch() {
+function artistLoopForFetch(userLocation) {
    try {
       // For each artist in the Spotify array
       topTenArray.forEach(async artist => {
@@ -43,26 +47,17 @@ function artistsLoopForFetch() {
    }
 }
 
-function formatMonth(showDate) {
-   showDate = moment().format('MMMM');
-   console.log(`After format, before return: ${showDate}`);
-   return showDate;
-}
-
 function matchMonthAll(artistEvents) {
-   let dateData = '';
-   let showDate = '';
-
    // Search through artist show datetime data to match the user location
    artistEvents.forEach(artist => {
       // Select data from artist object
       dateData = artist[datetime];
-      // Store formatted date in variable
-      showDate = formatMonth(dateData);
-      // If formatted month matches user month selection
-      if (showDate === userMonth) {
+      // Get numeric month values from data
+      showMonth = dateData.substring(5, 7);
+      // If month matches user month selection
+      if (showMonth === userMonth) {
          // Display the show
-         displayShows(showDate);
+         displayShows(showMonth);
       }
    });
 }
@@ -75,3 +70,4 @@ function matchMonthAndArtist(artistEvents) {
          displayShows(show);
    });
 }
+
