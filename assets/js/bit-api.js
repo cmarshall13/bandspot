@@ -54,6 +54,7 @@ function matchMonthAll(artistEvents) {
       dateData = artist[datetime];
       // Get numeric month values from data
       showMonth = dateData.substring(5, 7);
+      console.log(`After getting month value from data: ${showMonth}`);
       // If month matches user month selection
       if (showMonth === userMonth) {
          // Display the show
