@@ -7,7 +7,7 @@ let userArtist = document.querySelector('#months-select').value;
 
 const FETCH_URL = `https://rest.bandsintown.com/artists/${artistQuery}/events/?app_id=yOUrSuP3r3ven7aPp-id`;
 
-function filterShowLocation(artistEvents, userLocation) {
+function filterShowLocation(artistEvents) {
 
    // Go through the events array for the artist and find all events in which match the region data the user location match
    artistEvents.forEach(event => {
