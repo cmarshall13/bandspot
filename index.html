@@ -4,76 +4,85 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Bandspot</title>
-</head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>Bandspot</title>
+    </head>
 <body>
     <div class="container">
     <header>
         <h1 class="center-align">Bandspot</h1>
     </header>
-    <div class="row">
-        <div class="col s12 center-align hidden">
-          This is where we welcome users to the page and share directions
-        </div>
-        <div class="col s12 center-align hidden">
-        <button class="waves-effect waves-light btn-large" id="spotify" type="submit">Login with Spotify!</button>
-        </div>
+    <div class="hero-img hidden">
+      <img src='' alt=''>
     </div>
-        <!--This is where the top # bands will be displayed once Spotify is logged in-->
-        <h2 class="left-align hidden">
-            Top Spotify Artists
-        </h2>
-        <div class="row">
-          <div class="col s6 hidden" id="options">
-            <label for="months">Months:</label>
-            <select name="months" id="months-select">
-              <option value="All">All</option>
-              <option value="January">January</option>
-              <option value="February">February</option>
-              <option value="March">March</option>
-              <option value="April">April</option>
-              <option value="May">May</option>
-              <option value="June">June</option>
-              <option value="July">July</option>
-              <option value="August">August</option>
-              <option value="September">September</option>
-              <option value="October">October</option>
-              <option value="November">November</option>
-              <option value="December">December</option>
-            </select>
+    <div class="row">
+      <div class="col s12 center-align hidden">
+        <p>This is where we welcome users to the page and share directions</p>
+      </div>
+      <div class="col s12 center-align hidden">
+        <button class="waves-effect waves-light btn-large" id="spotify" type="submit">Login with Spotify!</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6 hidden" id="options">
+        <label for="months">Months:</label>
+        <select name="months" id="months-select">
+          <option value="All">All</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
+      </div>
+      <div class="col s6 hidden">
+        <label for="artists" id="artist-label">Bands:</label>
+        <select name="artists" id="artists-select">
+          <option value="All">All</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m7 hidden">
+        <div class="card small">
+          <div class="card-image">
+            <img src="" alt="image of album cover">
+            <span class="card-title">Card Title</span>
           </div>
-          <div class="col s6 hidden">
-            <label for="artists" id="artist-label">Bands:</label>
-            <select name="artists" id="artists-select">
-              <option value="All">All</option>
-            </select>
+          <div class="card-content">
+            <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
           </div>
         </div>
-        <div class="row">
-          <div class="col s12 m7 hidden">
-            <div class="card small">
-              <div class="card-image">
-                <img src="" alt="image of album cover">
-                <span class="card-title">Card Title</span>
-              </div>
-              <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-              </div>
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </div>
-          </div>
-        </div>
-    
-    
-</div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./assets/js/script.js"></script>  
-</body>
+      </div>
+    </div>
+    <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal hidden">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+<footer>
+  <p>Made for Music Enthusiasts Everywhere</p>
+</footer>
         
     </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
