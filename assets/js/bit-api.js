@@ -87,4 +87,3 @@ function displayErrorModal() {
    const errorModalEl = document.querySelector('.modal');
    M.Modal.init(errorModalEl, {});
 }
-
