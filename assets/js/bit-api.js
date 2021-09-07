@@ -85,9 +85,7 @@ function matchMonthAndArtist(artistEvents) {
 var concertData = [];
 
 var fetchConcertData = async function(artists){
-   for(var i=0; i<artists.length; i++){
-      var artist = artists[i];
-
+   for(var artist of artists){
       FETCH_URL = `https://rest.bandsintown.com/artists/${artist}/events/?app_id=${API_KEY}`;
       try{
          await fetch(FETCH_URL)
