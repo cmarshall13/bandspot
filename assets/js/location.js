@@ -10,10 +10,11 @@ async function getUserLocation() {
       console.log(`After fetch: ${response}`);
       // Get state initials from user location
       userLocation = response.region_code;
+      localStorage.setItem('userLocation', userLocation);
    }
    catch (err) {
       alert(`Uh oh, something went wrong: ${err}!`);
    }
 };
 
-getUserLocation();
+userLocation = localStorage.getItem('userLocation') || getUserLocation();

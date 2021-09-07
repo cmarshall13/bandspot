@@ -6,7 +6,7 @@ let userMonth = document.querySelector('#artists-select').value;
 let userArtist = document.querySelector('#months-select').value;
 
 const API_KEY = '641fbf4191ad9a6cd474d32af802738c';
-const FETCH_URL = `https://rest.bandsintown.com/artists/${artistQuery}/events/?app_id=${API_KEY}`;
+var FETCH_URL = `https://rest.bandsintown.com/artists/{${artistQuery}}/events/?app_id=${API_KEY}`;
 
 function filterShowLocation(artistEvents) {
 
@@ -45,7 +45,7 @@ function artistLoopForFetch(userLocation) {
       // For each artist in the Spotify array
       topTenArray.forEach(async artist => {
          // Call fetch function
-         var artistEvents = await fetchArtists(artist)
+         var artistEvents = await fetchArtists(artist);
          console.log(`After fetch/before push: ${topArtist}`);
          // Match the artist events with the user location
          filterShowLocation(artistEvents, userLocation);
@@ -82,8 +82,36 @@ function matchMonthAndArtist(artistEvents) {
    });
 }
 
-// Modal function
-function displayErrorModal() {
-   const errorModalEl = document.querySelector('.modal');
-   M.Modal.init(errorModalEl, {});
+var english = /^[A-Za-z0-9&.@% ]*$/;
+var concertData = [];
+
+var fetchConcertData = async function(artists){
+   for(var i=0; i<artists.length; i++){
+      var artist = artists[i];
+
+      if(english.test(artist)  == true){
+         FETCH_URL = `https://rest.bandsintown.com/artists/${artist}/events/?app_id=${API_KEY}`;
+         try{
+            await fetch(FETCH_URL)
+            .then(function(response){
+               return response.json();
+            })
+            .then(function(data){
+               saveConcertData(artist, data, concertData.length);
+            });
+         }catch(e){
+            console.log(e);
+            continue;
+         }
+      }
+   }
+}
+
+var saveConcertData = function(artist, data, index){
+   concertData.push({artist: artist, shows: []});
+
+   for(var d of data){
+      concertData[index].shows.push({date: d.datetime, venue: d.venue.name, location: d.venue.location, region: d.venue.region});
+   }
+   console.log(concertData);
 }

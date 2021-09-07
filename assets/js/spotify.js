@@ -84,6 +84,7 @@ var updateArtistsArray = function(items){
             artists.push(i.name);
         }
         populateSelectBox();
+        fetchConcertData(artists);
 }
 
 try{

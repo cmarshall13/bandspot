@@ -42,3 +42,9 @@ DOMEl.monthSelect.onchange = function(){
     var artist = DOMEl.artSelect.value;
     displayConcertCards(month, artist);
 }
+
+// Modal function
+function displayErrorModal() {
+    const errorModalEl = document.querySelector('.modal');
+    M.Modal.init(errorModalEl, {});
+}
