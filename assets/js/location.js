@@ -1,20 +1,21 @@
 let userLocation = '';
+const apiURL = 'http://api.ipstack.com/check?access_key=83efe3074e441fc99a26233154d65f0e';
 
-async function fetchLocation() {
-   return await (await fetch('http://api.ipstack.com/check?access_key=83efe3074e441fc99a26233154d65f0e')).json();
+var fetchLocation = function(){
+   fetch(apiURL)
+      .then(function(response){
+         return response.json();
+      })
+      .then(function(data){
+         userLocation = data.region_code;
+         localStorage.setItem('userLocation', userLocation);
+      });
 }
 
-async function getUserLocation() {
-   try {
-      response = await fetchLocation();
-      console.log(`After fetch: ${response}`);
-      // Get state initials from user location
-      userLocation = response.region_code;
-      localStorage.setItem('userLocation', userLocation);
-   }
-   catch (err) {
-      alert(`Uh oh, something went wrong: ${err}!`);
-   }
-};
-
-userLocation = localStorage.getItem('userLocation') || getUserLocation();
+if(localStorage.getItem("userLocation") != null){
+   userLocation = localStorage.getItem("userLocation");
+   console.log("pulled from local storage!");
+}else{
+   fetchLocation();
+   console.log("fetched from online!");
+}
