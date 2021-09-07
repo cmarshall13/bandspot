@@ -26,19 +26,19 @@ var displayConcertCards = function(month, artist){
     console.log(month, artist);
 }
 
-DOMEl.spotifyBtn.addEventListener("click", function(event){
+DOMEl.spotifyBtn.onclick = function(event){
     event.preventDefault();
     requestUserAuthorization();
-});
+}
 
-DOMEl.artSelect.addEventListener("change", function(){
+DOMEl.artSelect.onchange =  function(){
     var month = DOMEl.monthSelect.value;
     var artist = DOMEl.artSelect.value;
     displayConcertCards(month, artist);
-})
+}
 
-DOMEl.monthSelect.addEventListener("change", function(){
+DOMEl.monthSelect.onchange = function(){
     var month = DOMEl.monthSelect.value;
     var artist = DOMEl.artSelect.value;
     displayConcertCards(month, artist);
-})
+}
