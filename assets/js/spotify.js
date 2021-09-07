@@ -14,6 +14,7 @@ var apiURLs = {
 }
 
 var artists = [];
+var english = /^[A-Za-z0-9&.@% ]*$/;
 
 // get the user to authorize our app to access their spotify account
 var requestUserAuthorization = function(){
@@ -79,9 +80,15 @@ var getTopArtists = function(){
         });
 }
 
+var checkEnglish = function(name){
+    return english.test(name);
+}
+
 var updateArtistsArray = function(items){
         for(var i of items){
-            artists.push(i.name);
+            if(checkEnglish(i.name)){
+                artists.push(i.name);
+            }
         }
         populateSelectBox();
         fetchConcertData(artists);

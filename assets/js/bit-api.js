@@ -89,20 +89,18 @@ var fetchConcertData = async function(artists){
    for(var i=0; i<artists.length; i++){
       var artist = artists[i];
 
-      if(english.test(artist)  == true){
-         FETCH_URL = `https://rest.bandsintown.com/artists/${artist}/events/?app_id=${API_KEY}`;
-         try{
-            await fetch(FETCH_URL)
-            .then(function(response){
-               return response.json();
-            })
-            .then(function(data){
-               saveConcertData(artist, data, concertData.length);
-            });
-         }catch(e){
-            console.log(e);
-            continue;
-         }
+      FETCH_URL = `https://rest.bandsintown.com/artists/${artist}/events/?app_id=${API_KEY}`;
+      try{
+         await fetch(FETCH_URL)
+         .then(function(response){
+            return response.json();
+         })
+         .then(function(data){
+            saveConcertData(artist, data, concertData.length);
+         });
+      }catch(e){
+         console.log(e);
+         continue;
       }
    }
 }
