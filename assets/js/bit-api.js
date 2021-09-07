@@ -13,23 +13,23 @@ function filterShowLocation(artistEvents) {
    // Go through the events array for the artist and find all events in which match the region data the user location match
    artistEvents.forEach(event => {
       console.log(`Before condition statement: ${event[venue].region} and ${userLocation}`);
+
       if (event[venue].region === userLocation) {
          // Push into the events array if the locations match
          eventsArray.push(event);
       }
-      // Otherwise, don't push and go to the next iteration
-      continue;
-   });
-   // Display the shows depending on the condition statement of user value selections
-   if (userMonth === 'All' && userArtist === 'All') {
-      displayConcertCards(eventsArray);
-   }
-   else if (!userMonth === 'All' && userArtist === 'All') {
-      matchMonthAll(eventsArray);
-   }
-   else {
-      matchMonthAndArtist(eventsArray);
-   }
+
+      // Display the shows depending on the condition statement of user value selections
+      if (userMonth === 'All' && userArtist === 'All') {
+         displayConcertCards(eventsArray);
+      }
+      else if (!userMonth === 'All' && userArtist === 'All') {
+         matchMonthAll(eventsArray);
+      }
+      else {
+         matchMonthAndArtist(eventsArray);
+      }
+   })
 }
 
 async function fetchArtists(artist) {
