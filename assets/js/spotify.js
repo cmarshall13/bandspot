@@ -1,7 +1,7 @@
 var apiData = {
     client_id: "e628ac9cc03a4ae7b5791a502a111c7a",
     client_secret: "5f04cafed0f446d8b129f601eb6d81b1",
-    redirect_uri: "http://trippjoe.github.io/bandspot/",
+    redirect_uri: "http://trippjoe.github.io/bandspot/index.html",
     access_token: "",
     refresh_token: ""
 }
