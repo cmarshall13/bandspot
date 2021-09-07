@@ -5,7 +5,8 @@ let eventsArray = [];
 let userMonth = document.querySelector('#artists-select').value;
 let userArtist = document.querySelector('#months-select').value;
 
-const FETCH_URL = `https://rest.bandsintown.com/artists/${artistQuery}/events/?app_id=yOUrSuP3r3ven7aPp-id`;
+const API_KEY = '641fbf4191ad9a6cd474d32af802738c';
+const FETCH_URL = `https://rest.bandsintown.com/artists/${artistQuery}/events/?app_id=${API_KEY}`;
 
 function filterShowLocation(artistEvents) {
 
