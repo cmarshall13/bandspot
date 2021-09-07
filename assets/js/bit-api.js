@@ -19,6 +19,16 @@ function filterShowLocation(artistEvents) {
       // Otherwise, don't push and go to the next iteration
       continue;
    });
+   // Display the shows depending on the condition statement of user value selections
+   if (userMonth === 'All' && userArtist === 'All') {
+      displayConcertCards(eventsArray);
+   }
+   else if (!userMonth === 'All' && userArtist === 'All') {
+      matchMonthAll(eventsArray);
+   }
+   else {
+      matchMonthAndArtist(eventsArray);
+   }
 
 }
 
@@ -57,7 +67,7 @@ function matchMonthAll(artistEvents) {
       // If month matches user month selection
       if (showMonth === userMonth) {
          // Display the show
-         displayShows(showMonth);
+         displayConcertCards(artist, showMonth);
       }
    });
 }
@@ -65,9 +75,10 @@ function matchMonthAll(artistEvents) {
 function matchMonthAndArtist(artistEvents) {
    // Search for events matching user-chosen artist and month filters
    artistEvents.forEach(show => {
-      if (formatMonth(artistEvents[datetime]) === userMonth && artistEvents[artist].name === userArtist)
+      let artist = artistEvents[artist].name;
+      if (formatMonth(artistEvents[datetime]) === userMonth && artist === userArtist)
          // Display the show
-         displayShows(show);
+         displayConcertCards(artist, show);
    });
 }
 
