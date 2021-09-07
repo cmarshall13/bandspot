@@ -82,7 +82,6 @@ function matchMonthAndArtist(artistEvents) {
    });
 }
 
-var english = /^[A-Za-z0-9&.@% ]*$/;
 var concertData = [];
 
 var fetchConcertData = async function(artists){
