@@ -7,8 +7,7 @@ var DOMEl = {
 }
 
 var hideLoginDiv = function(){
-    // DOMEl.loginDiv.style.display = "none";
-    DOMEl.loginDiv.setAttribute("class", "hidden");
+    DOMEl.loginDiv.setAttribute("hidden", true);
 }
 
 var populateSelectBox = function(){
@@ -20,7 +19,6 @@ var populateSelectBox = function(){
         opt.textContent = a;
         DOMEl.artSelect.appendChild(opt);
     }
-    // DOMEl.optionsDiv.style.display = "flex";
     DOMEl.optionsDiv.removeAttribute("hidden");
 }
 
