@@ -37,7 +37,6 @@ var getAuthCode = function(){
             // update the url space to hide the code parameter
             window.history.pushState("", "", apiData.redirect_uri);
         }
-        return code;
     }
 }
 
@@ -57,7 +56,6 @@ var getAuthorization = function(code){
         .then(function(response){
             apiData.access_token = response.access_token;
             apiData.refresh_token = response.refresh_token;
-            getAuthCode();
             getTopArtists();
         });
 }
