@@ -29,7 +29,6 @@ function filterShowLocation(artistEvents) {
    else {
       matchMonthAndArtist(eventsArray);
    }
-
 }
 
 async function fetchArtists(artist) {
