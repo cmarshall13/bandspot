@@ -14,8 +14,6 @@ var fetchLocation = function(){
 
 if(localStorage.getItem("userLocation") != null){
    userLocation = localStorage.getItem("userLocation");
-   console.log("pulled from local storage!");
 }else{
    fetchLocation();
-   console.log("fetched from online!");
 }
