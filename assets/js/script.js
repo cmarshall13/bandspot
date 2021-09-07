@@ -7,7 +7,7 @@ var DOMEl = {
 }
 
 var hideLoginDiv = function(){
-    DOMEl.loginDiv.setAttribute("hidden", true);
+    DOMEl.loginDiv.classList = "hidden";
 }
 
 var populateSelectBox = function(){
@@ -19,7 +19,7 @@ var populateSelectBox = function(){
         opt.textContent = a;
         DOMEl.artSelect.appendChild(opt);
     }
-    DOMEl.optionsDiv.removeAttribute("hidden");
+    DOMEl.optionsDiv.removeAttribute("class", "hidden");
 }
 
 var displayConcertCards = function(month, artist){
