@@ -42,8 +42,7 @@ function artistLoopForFetch(userLocation) {
       })
       // Any error in the fetch function or the loop will be caught here
    } catch (err) {
-      //TODO: This will be a modal instead of an alert
-      alert(`Uh oh, something went wrong! ${err}`);
+      displayErrorModal();
    }
 }
 
@@ -70,5 +69,11 @@ function matchMonthAndArtist(artistEvents) {
          // Display the show
          displayShows(show);
    });
+}
+
+// Modal function
+function displayErrorModal() {
+   const errorModalEl = document.querySelector('.modal');
+   M.Modal.init(errorModalEl, {});
 }
 
