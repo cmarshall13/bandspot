@@ -6,7 +6,7 @@
   --light-green: hsl(120, 42%, 75%);
   --spotify-green: hsl(141, 73%, 42%);
   --black-green: hsl(143, 85%, 8%);
-  --light-purple: rgb(221, 164, 221);
+  --light-purple: hsl(300, 46%, 75%);
   --font-gothic: "Gothic A1", Arial, sans-serif;
   --font-secondary: "Catamaran";
 }
