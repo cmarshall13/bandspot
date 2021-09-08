@@ -1,15 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Color and font variables overriding Materialize */
+:root {
+  --light-green: hsl(120, 42%, 75%);
+  --spotify-green: hsl(141, 73%, 42%);
+  --black-green: hsl(143, 85%, 8%);
+  --light-purple: rgb(221, 164, 221);
+  --font-gothic: "Gothic A1", Arial, sans-serif;
+  --font-secondary: "Catamaran";
 }
 
 body {
-  font-family: "Gothic A1", Arial, sans-serif;
+  font-family: var(--font-gothic);
 }
 
+/* *HIDDEN UTILITY CLASS */
 .hidden {
   display: none;
 }
@@ -23,13 +29,22 @@ body {
   margin-top: 4rem;
 }
 
-/* Overriding Materialize button */
+/* *SPOTIFY BUTTON (overriding Materialize) */
 .btn-large {
   height: 100px;
   width: 400px;
   font-size: 1.5rem;
-  margin-bottom: 8rem;
+  margin-bottom: 2rem;
 }
+
+#spotify {
+  background-color: var(--spotify-green);
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* *LANDING PAGE TEXT */
 .welcome-text {
   font-weight: bold;
   font-size: 5rem;
@@ -39,11 +54,7 @@ body {
   padding: 4rem;
 }
 
-#spotify {
-  background-color: #1db954;
-  font-weight: bold;
-}
-
+/* *DROP-DOWN STYLING */
 #months-select,
 #artists-select,
 #region-select {
@@ -51,26 +62,50 @@ body {
 }
 
 #options {
+  padding: 3rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin-top: 4rem;
 }
 
-.options label {
-  display: flex;
+.label {
   align-items: center;
-  font-size: 30px;
-  padding: 0px 20px;
+  font-size: 2rem;
+  padding: 2rem;
+  background: rgb(165, 218, 165);
+  color: var(--black-green);
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  border-radius: 25px;
 }
 
+.artists-select,
+.months-select,
+.regions-select {
+  margin-top: 4rem;
+  height: 4rem;
+  background: var(--light-purple);
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.artists-select option,
+.months-select option,
+.regions-select option {
+  font-family: var(--font-secondary);
+}
+
+/* *CARD STYLING */
 .card {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
   align-items: center;
-  color: white;
-  border: 2px white solid;
+  color: var(--light-green);
+  border: 2px solid var(--light-green);
 }
 
 footer {

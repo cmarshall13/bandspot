@@ -47,7 +47,7 @@
 
         <div class="col s12 center-align">
           <button
-            class="waves-effect waves-light btn-large"
+            class="waves-effect waves-light spotify-btn btn-large"
             id="spotify"
             type="submit"
           >
@@ -56,17 +56,17 @@
         </div>
       </div>
 
-      <div id="options" class="row options">
-        <div class="col s4 hidden">
-          <label for="artists" id="artist-label">Artists:</label>
-          <select name="artists" id="artists-select">
+      <div id="options" class="row options hidden">
+        <div class="col s4 artist-column hidden">
+          <label class="label" for="artists" id="artist-label">Artists:</label>
+          <select name="artists" class="artists-select" id="artists-select">
             <option value="All">All</option>
           </select>
         </div>
 
-        <div class="col s4 hidden">
-          <label for="months">Months:</label>
-          <select name="months" id="months-select">
+        <div class="col s4 months-column hidden">
+          <label class="label" for="months">Months:</label>
+          <select name="months" class="months-select" id="months-select">
             <option value="All">All</option>
             <option value="01">January</option>
             <option value="02">February</option>
@@ -83,9 +83,9 @@
           </select>
         </div>
 
-        <div class="col s4 hidden">
-          <label for="region" id="region-label">Regions:</label>
-          <select name="region" id="region-select">
+        <div class="col s4 regions-column hidden">
+          <label class="label" for="region" id="region-label">Regions:</label>
+          <select name="region" class="regions-select" id="region-select">
             <option value="All">All</option>
           </select>
         </div>
