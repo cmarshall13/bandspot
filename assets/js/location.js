@@ -17,10 +17,8 @@ var fetchLocation = function () {
    }
 }
 
-if (!localStorage.getItem("userLocation")) {
+if (localStorage.getItem("userLocation")) {
    userLocation = localStorage.getItem("userLocation");
 } else {
-   fetchLocation;
+   fetchLocation();
 }
-
-fetchLocation;
