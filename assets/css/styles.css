@@ -84,10 +84,10 @@ h3 {
 }
 
 #options {
-  padding: 3rem;
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 4rem;
 }
 
