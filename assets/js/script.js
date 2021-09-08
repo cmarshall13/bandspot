@@ -22,6 +22,7 @@ var populateArtistSelectBox = function () {
 
     // Show welcome text at drop-down page
     DOMEl.searchPageText.removeAttribute("class", "hidden");
+    DOMEl.searchPageText.setAttribute("class", "center-align");
     // ADD SPOTIFY USERNAME TO SPAN!
     // TODO: Get username and store it in spotifyUser variable
     // spotifySpan.textContent = spotifyUser;
