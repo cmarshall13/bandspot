@@ -149,5 +149,14 @@ DOMEl.regionSelect.onchange = function () {
 // Modal function
 function displayErrorModal() {
     const errorModalEl = document.querySelector('.modal');
-    M.Modal.init(errorModalEl, {});
+    M.Modal.init(errorModalEl, {
+        opacity: 0.6,
+        dismissible: true,
+        preventScrolling: true,
+    });
+
+    const instance = M.Modal.getInstance(errorModalEl);
+    instance.open();
 }
+
+
