@@ -21,6 +21,7 @@ body {
 }
 
 .logo img {
+  box-shadow: 2px 5px 15px -2px var(--black-green);
   height: 300px;
   width: 100%;
 }
@@ -39,7 +40,7 @@ body {
 
 #spotify {
   background-color: var(--spotify-green);
-  font-family: var(--font-secondary);
+  font-family: var(--font-gothic);
   font-size: 2rem;
   font-weight: bold;
 }
@@ -52,6 +53,26 @@ body {
 
 .intro-content {
   padding: 4rem;
+}
+
+/* *DROP-DOWN PAGE WELCOME TEXT STYLING */
+.search-page-text {
+  font-weight: bold;
+  margin-top: 4.5rem;
+}
+
+.spotify-username {
+  font-family: var(--font-secondary);
+  color: var(--spotify-green);
+}
+
+.select-instruct {
+  background: var(--light-green);
+  color: var(--black-green);
+  border-radius: 5px;
+  padding: 2rem;
+  margin-top: 3rem;
+  font-size: 1.5rem;
 }
 
 /* *DROP-DOWN STYLING */
@@ -111,10 +132,20 @@ body {
 footer {
   bottom: 0;
   position: relative;
-  padding: 3rem;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0px -5px 10px -2px var(--black-green);
 }
 
 .footer-text {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
+}
+
+.footer-span {
+  color: var(--light-green);
+}
+
+.everywhere {
+  color: var(--light-purple);
 }
