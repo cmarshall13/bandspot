@@ -29,6 +29,12 @@
     justify-content: center;
     flex-wrap: wrap;
     text-align: center;
+    align-items: center;
     color: white;
     border: 2px white solid;
+}
+
+footer{
+    bottom: 0;
+    position: relative;
 }

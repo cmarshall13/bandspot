@@ -18,7 +18,7 @@ var fetchConcertData = async function(artists){
          continue;
       }
    }
-   primeConcertData();
+   filterLocation();
 }
 
 var saveConcertData = function(artist, data, index){
