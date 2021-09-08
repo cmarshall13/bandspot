@@ -4,6 +4,7 @@ var DOMEl = {
     spotifyBtn: document.getElementById("spotify"),
     loginDiv: document.querySelector("#login"),
     optionsDiv: document.getElementById("options"),
+    cardContainerDiv: document.getElementById("card-container"),
 }
 
 var hideLoginDiv = function(){
@@ -23,6 +24,8 @@ var populateSelectBox = function(){
 }
 
 var primeConcertData = function(){
+    DOMEl.cardContainerDiv.removeAttribute("class", "hidden");
+
     for(var events of eventsArray){
         var artist = events.artist;
         for(var show of events.shows){
@@ -35,6 +38,21 @@ var primeConcertData = function(){
             if(userLocation === region){
                 console.log(artist);
                 console.log(show);
+
+                var card = document.createElement("div");
+                card.setAttribute("class", "card-small");
+
+                var cardImageDiv = document.createElement("div");
+
+                var cardContentDiv = document.createElement("div");
+
+                var cardActionDiv = document.createElement("div");
+
+
+                card.appendChild(cardImageDiv);
+                card.appendChild(cardContentDiv);
+                card.appendChild(cardActionDiv);
+                DOMEl.cardContainerDiv.append(card);
             }
         }
     }
