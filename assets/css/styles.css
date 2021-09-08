@@ -93,8 +93,9 @@ h3 {
 
 .label {
   align-items: center;
+  text-decoration: underline;
   font-size: 2rem;
-  padding: 2rem;
+  padding: 2rem 6rem;
   background: rgb(165, 218, 165);
   color: var(--black-green);
   font-family: var(--font-secondary);
