@@ -18,6 +18,7 @@ var fetchConcertData = async function(artists){
          continue;
       }
    }
+   primeConcertData();
 }
 
 var saveConcertData = function(artist, data, index){
@@ -26,5 +27,4 @@ var saveConcertData = function(artist, data, index){
    for(var d of data){
       eventsArray[index].shows.push({date: d.datetime, venue: d.venue.name, location: d.venue.location, region: d.venue.region});
    }
-   console.log(eventsArray);
 }

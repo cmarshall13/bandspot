@@ -22,14 +22,29 @@ var populateSelectBox = function(){
     DOMEl.optionsDiv.removeAttribute("class", "hidden");
 }
 
-var displayConcertCards = function(month, artist){
-    if(month == "All" && artist == "All"){
-        console.log("hello!");
+var primeConcertData = function(){
+    for(var events of eventsArray){
+        var artist = events.artist;
+        for(var show of events.shows){
+            // console.log(show);
+            var venue = show.venue;
+            var date = show.date;
+            var region = show.region;
+            var location = show.location;
+
+            if(userLocation === region){
+                console.log(artist);
+                console.log(show);
+            }
+        }
     }
 }
 
-function filterShowLocation(artistEvents) {
+var displayConcertCards = function(month, artist){
+    // do something
+}
 
+function filterShowLocation(artistEvents) {
 // Go through the events array for the artist and find all events in which match the region data the user location match
 artistEvents.forEach(event => {
     console.log(`Before condition statement: ${event[venue].region} and ${userLocation}`);
@@ -52,28 +67,19 @@ artistEvents.forEach(event => {
 });
 }
 
-async function fetchArtists(artist) {
-// Artist query passed through async for-loop below
-artistQuery = artist;
-console.log(`Before fetch: ${artistQuery}`);
-// This returns the results of a single fetch
-return await (await fetch(FETCH_URL)).json();
-}
-
 function artistLoopForFetch(userLocation) {
-try {
+    try {
     // For each artist in the Spotify array
     topTenArray.forEach(async artist => {
-        // Call fetch function
         var artistEvents = await fetchArtists(artist);
         console.log(`After fetch/before push: ${topArtist}`);
         // Match the artist events with the user location
         filterShowLocation(artistEvents, userLocation);
     })
     // Any error in the fetch function or the loop will be caught here
-} catch (err) {
-    displayErrorModal();
-}
+    } catch (err) {
+        displayErrorModal();
+    }
 }
 
 function matchMonthAll(artistEvents) {
@@ -93,13 +99,13 @@ artistEvents.forEach(artist => {
 }
 
 function matchMonthAndArtist(artistEvents) {
-// Search for events matching user-chosen artist and month filters
-artistEvents.forEach(show => {
-    let artist = artistEvents[artist].name;
-    if (formatMonth(artistEvents[datetime]) === userMonth && artist === userArtist)
-        // Display the show
-        displayConcertCards(artist, show);
-});
+    // Search for events matching user-chosen artist and month filters
+    artistEvents.forEach(show => {
+        let artist = artistEvents[artist].name;
+        if (formatMonth(artistEvents[datetime]) === userMonth && artist === userArtist)
+            // Display the show
+            displayConcertCards(artist, show);
+    });
 }
 
 DOMEl.spotifyBtn.onclick = function(event){
@@ -110,13 +116,15 @@ DOMEl.spotifyBtn.onclick = function(event){
 DOMEl.artSelect.onchange =  function(){
     var month = DOMEl.monthSelect.value;
     var artist = DOMEl.artSelect.value;
-    displayConcertCards(month, artist);
+    // displayConcertCards(month, artist);
+    primeConcertData();
 }
 
 DOMEl.monthSelect.onchange = function(){
     var month = DOMEl.monthSelect.value;
     var artist = DOMEl.artSelect.value;
-    displayConcertCards(month, artist);
+    // displayConcertCards(month, artist);
+    primeConcertData();
 }
 
 // Modal function
