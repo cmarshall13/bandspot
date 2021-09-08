@@ -1,5 +1,5 @@
 let userLocation = '';
-const apiURL = 'https://api.ipstack.com/check?access_key=83efe3074e441fc99a26233154d65f0e';
+const apiURL = 'http://api.ipstack.com/check?access_key=83efe3074e441fc99a26233154d65f0e';
 
 var fetchLocation = function(){
    fetch(apiURL)
