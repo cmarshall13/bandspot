@@ -29,7 +29,6 @@ var primeConcertData = function(){
     for(var events of eventsArray){
         var artist = events.artist;
         for(var show of events.shows){
-            // console.log(show);
             var venue = show.venue;
             var date = show.date;
             var region = show.region;
@@ -39,19 +38,39 @@ var primeConcertData = function(){
                 console.log(artist);
                 console.log(show);
 
-                var card = document.createElement("div");
-                card.setAttribute("class", "card-small");
+                var card = document.createElement("a");
+                card.href = "";
 
-                var cardImageDiv = document.createElement("div");
+                var cardDiv = document.createElement("div");
+                cardDiv.setAttribute("class", "card small col s3");
+                cardDiv.style.backgroundImage = 'url("https://png.clipart.me/previews/1dd/vertical-card-vector-23692.jpg")';
 
                 var cardContentDiv = document.createElement("div");
 
-                var cardActionDiv = document.createElement("div");
+                var cardArtist = document.createElement("h4");
+                cardArtist.textContent = artist;
 
+                var cardDate = document.createElement("h5");
+                cardDate.textContent = date;
 
-                card.appendChild(cardImageDiv);
-                card.appendChild(cardContentDiv);
-                card.appendChild(cardActionDiv);
+                var cardVenue = document.createElement("h5");
+                cardVenue.textContent = "Venue: " + venue;
+
+                var cardLocation = document.createElement("h5");
+                cardLocation.textContent = location;
+
+                // append concert data to content div
+                cardContentDiv.appendChild(cardArtist);
+                cardContentDiv.appendChild(cardDate);
+                cardContentDiv.appendChild(cardVenue);
+                cardContentDiv.appendChild(cardLocation);
+
+                // append content div to card div
+                cardDiv.appendChild(cardContentDiv);
+
+                card.appendChild(cardDiv);
+
+                // append card to container div
                 DOMEl.cardContainerDiv.append(card);
             }
         }
@@ -83,21 +102,6 @@ artistEvents.forEach(event => {
         matchMonthAndArtist(eventsArray);
     }
 });
-}
-
-function artistLoopForFetch(userLocation) {
-    try {
-    // For each artist in the Spotify array
-    topTenArray.forEach(async artist => {
-        var artistEvents = await fetchArtists(artist);
-        console.log(`After fetch/before push: ${topArtist}`);
-        // Match the artist events with the user location
-        filterShowLocation(artistEvents, userLocation);
-    })
-    // Any error in the fetch function or the loop will be caught here
-    } catch (err) {
-        displayErrorModal();
-    }
 }
 
 function matchMonthAll(artistEvents) {

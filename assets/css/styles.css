@@ -23,3 +23,12 @@
 .hidden{
     display: none;
 }
+
+.card{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    color: white;
+    border: 2px white solid;
+}
