@@ -1,6 +1,7 @@
 var DOMEl = {
     artSelect: document.getElementById("artists-select"),
     monthSelect: document.getElementById("months-select"),
+    regionSelect: document.getElementById("region-select"),
     spotifyBtn: document.getElementById("spotify"),
     loginDiv: document.querySelector("#login"),
     optionsDiv: document.getElementById("options"),
@@ -11,7 +12,7 @@ var hideLoginDiv = function(){
     DOMEl.loginDiv.classList = "hidden";
 }
 
-var populateSelectBox = function(){
+var populateArtistSelectBox = function(){
     hideLoginDiv();
 
     for(var a of artists){
@@ -122,6 +123,11 @@ DOMEl.monthSelect.onchange = function(){
     var month = DOMEl.monthSelect.value;
     var artist = DOMEl.artSelect.value;
     filter(artist, month);
+}
+
+DOMEl.regionSelect.onchange = function(){
+    var region = DOMEl.regionSelect.value;
+    // send the region value to the filter
 }
 
 // Modal function

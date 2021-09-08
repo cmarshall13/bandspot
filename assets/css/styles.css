@@ -4,7 +4,8 @@
 }
 
 #months-select,
-#artists-select{
+#artists-select,
+#region-select{
     display: flex;
 }
 
