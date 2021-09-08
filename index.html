@@ -1,32 +1,58 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>Bandspot</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Bandspot || Find Local Live Shows!</title>
   </head>
 
-  <body>
+  <body class="light-green lighten-5">
     <div class="container">
-      <header>
-        <h1 class="center-align">Bandspot</h1>
-      </header>
+      <div class="logo center-align">
+        <img
+          src="./assets/img/logo.png"
+          alt="Bandspot
+        Logo"
+        />
+      </div>
 
       <div class="hero-img" hidden>
-        <img src='' alt=''>
+        <img src="" alt="" />
       </div>
 
       <div id="login" class="row">
         <div class="col s12 center-align">
-          <p>Login with spotify to find local concerts by your favorite artists!</p>
+          <h1 class="welcome-text green-text text-darken-1">
+            WELCOME TO
+            <span class="purple-text text-darken-4 bandspot-text"
+              >BANDSPOT!</span
+            >
+          </h1>
+          <h2 class="intro-content">
+            Search for upcoming local shows for your favorite bands. We bring
+            the music to you, tailored to your unique taste, so you can spend
+            less time looking for concerts and more time going to them.
+          </h2>
         </div>
 
         <div class="col s12 center-align">
-          <button class="waves-effect waves-light btn-large" id="spotify" type="submit">Login with Spotify!</button>
+          <button
+            class="waves-effect waves-light btn-large"
+            id="spotify"
+            type="submit"
+          >
+            Login with Spotify!
+          </button>
         </div>
       </div>
 
@@ -70,7 +96,11 @@
       </div>
 
       <!-- Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger hidden" href="#modal1">Modal</a>
+      <a
+        class="waves-effect waves-light btn modal-trigger hidden"
+        href="#modal1"
+        >Modal</a
+      >
 
       <!-- Modal Structure -->
       <div id="modal1" class="modal">
@@ -79,12 +109,16 @@
         </div>
 
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat"
+            >Agree</a
+          >
         </div>
       </div>
 
-      <footer>
-        <p>Made for Music Enthusiasts Everywhere</p>
+      <footer class="purple darken-4">
+        <p class="center-align light-green-text text-lighten-5 footer-text">
+          Made for Music Enthusiasts Everywhere
+        </p>
       </footer>
     </div>
 
