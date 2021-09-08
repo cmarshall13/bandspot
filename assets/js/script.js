@@ -8,14 +8,14 @@ var DOMEl = {
     cardContainerDiv: document.getElementById("card-container"),
 }
 
-var hideLoginDiv = function(){
+var hideLoginDiv = function () {
     DOMEl.loginDiv.classList = "hidden";
 }
 
-var populateArtistSelectBox = function(){
+var populateArtistSelectBox = function () {
     hideLoginDiv();
 
-    for(var a of artists){
+    for (var a of artists) {
         var opt = document.createElement("option");
         opt.value = a;
         opt.textContent = a;
@@ -24,7 +24,7 @@ var populateArtistSelectBox = function(){
     DOMEl.optionsDiv.removeAttribute("class", "hidden");
 }
 
-var displayConcertCards = function(artist, show){
+var displayConcertCards = function (artist, show) {
     // show the card container div
     DOMEl.cardContainerDiv.removeAttribute("class", "hidden");
 
@@ -68,39 +68,39 @@ var displayConcertCards = function(artist, show){
     DOMEl.cardContainerDiv.append(card);
 }
 
-var filterLocation = function(){
+var filterLocation = function () {
     // empty the card container div
     DOMEl.cardContainerDiv.innerHTML = "";
-    for(var events of eventsArray){
+    for (var events of eventsArray) {
         var artist = events.artist;
         // loop thru the shows array
-        for(var show of events.shows){
+        for (var show of events.shows) {
             var location = show.region;
-            if(location === userLocation){
+            if (location === userLocation) {
                 displayConcertCards(artist, show);
             }
         }
     }
 }
 
-var filter = function(artistFilter, monthFilter){
+var filter = function (artistFilter, monthFilter) {
     // empty the card container div
     DOMEl.cardContainerDiv.innerHTML = "";
 
-    for(var events of eventsArray){
+    for (var events of eventsArray) {
         var artist = events.artist;
         // check if this artist has any shows
-        if(events.shows.length > 0){
+        if (events.shows.length > 0) {
             // loop thru the shows array
-            for(var show of events.shows){
+            for (var show of events.shows) {
                 var month = show.date.substring(5, 7);
-                if(artistFilter === "All" && monthFilter === "All"){
+                if (artistFilter === "All" && monthFilter === "All") {
                     displayConcertCards(artist, show);
-                }else if(artistFilter === "All" && month === monthFilter){
+                } else if (artistFilter === "All" && month === monthFilter) {
                     displayConcertCards(artist, show);
-                }else if(artist === artistFilter && monthFilter === "All"){
+                } else if (artist === artistFilter && monthFilter === "All") {
                     displayConcertCards(artist, show);
-                }else if(artist === artistFilter && month === monthFilter){
+                } else if (artist === artistFilter && month === monthFilter) {
                     displayConcertCards(artist, show);
                 }
             }
@@ -108,24 +108,24 @@ var filter = function(artistFilter, monthFilter){
     }
 }
 
-DOMEl.spotifyBtn.onclick = function(event){
+DOMEl.spotifyBtn.onclick = function (event) {
     event.preventDefault();
     requestUserAuthorization();
 }
 
-DOMEl.artSelect.onchange = function(){
+DOMEl.artSelect.onchange = function () {
     var month = DOMEl.monthSelect.value;
     var artist = DOMEl.artSelect.value;
     filter(artist, month);
 }
 
-DOMEl.monthSelect.onchange = function(){
+DOMEl.monthSelect.onchange = function () {
     var month = DOMEl.monthSelect.value;
     var artist = DOMEl.artSelect.value;
     filter(artist, month);
 }
 
-DOMEl.regionSelect.onchange = function(){
+DOMEl.regionSelect.onchange = function () {
     var region = DOMEl.regionSelect.value;
     // send the region value to the filter
 }
@@ -133,5 +133,14 @@ DOMEl.regionSelect.onchange = function(){
 // Modal function
 function displayErrorModal() {
     const errorModalEl = document.querySelector('.modal');
-    M.Modal.init(errorModalEl, {});
+    M.Modal.init(errorModalEl, {
+        opacity: 0.6,
+        dismissible: true,
+        preventScrolling: true,
+    });
+
+    const instance = M.Modal.getInstance(errorModalEl);
+    instance.open();
 }
+
+
