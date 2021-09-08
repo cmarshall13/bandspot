@@ -56,14 +56,15 @@ body {
 }
 
 /* *DROP-DOWN PAGE WELCOME TEXT STYLING */
-.search-page-text {
-  font-weight: bold;
-  margin-top: 4.5rem;
+
+h3 {
+  margin-top: 6rem;
 }
 
 .spotify-username {
   font-family: var(--font-secondary);
   color: var(--spotify-green);
+  font-weight: bold;
 }
 
 .select-instruct {
