@@ -10,6 +10,10 @@ body {
   font-family: "Gothic A1", Arial, sans-serif;
 }
 
+.hidden {
+  display: none;
+}
+
 .logo img {
   height: 300px;
   width: 100%;
@@ -34,6 +38,7 @@ body {
 .intro-content {
   padding: 4rem;
 }
+
 #spotify {
   background-color: #1db954;
   font-weight: bold;
@@ -45,8 +50,9 @@ body {
   display: flex;
 }
 
-.options {
+#options {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
@@ -55,10 +61,6 @@ body {
   align-items: center;
   font-size: 30px;
   padding: 0px 20px;
-}
-
-.hidden {
-  display: none;
 }
 
 .card {
