@@ -7,6 +7,8 @@ var DOMEl = {
     regionColumnEl: document.querySelector('.regions-column'),
     spotifyBtn: document.getElementById("spotify"),
     loginDiv: document.querySelector("#login"),
+    searchPageText: document.querySelector('.search-page-text'),
+    spotifySpan: document.querySelector('.spotify-username'),
     optionsDiv: document.getElementById("options"),
     cardContainerDiv: document.getElementById("card-container"),
 }
@@ -18,12 +20,19 @@ var hideLoginDiv = function () {
 var populateArtistSelectBox = function () {
     hideLoginDiv();
 
+    // Show welcome text at drop-down page
+    DOMEl.searchPageText.removeAttribute("class", "hidden");
+    // ADD SPOTIFY USERNAME TO SPAN!
+    // TODO: Get username and store it in spotifyUser variable
+    // spotifySpan.textContent = spotifyUser;
+
     for (var a of artists) {
         var opt = document.createElement("option");
         opt.value = a;
         opt.textContent = a;
         DOMEl.artSelect.appendChild(opt);
     }
+
     DOMEl.artColumnEl.removeAttribute("class", "hidden");
     DOMEl.monthColumnEl.removeAttribute("class", "hidden");
     DOMEl.regionColumnEl.removeAttribute("class", "hidden");
