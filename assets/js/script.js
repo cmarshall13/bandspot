@@ -46,6 +46,7 @@ var displayConcertCards = function (artist, image, show) {
 
     var venue = show.venue;
     var date = show.date;
+    var time = show.time;
     var location = show.location;
 
     var card = document.createElement("a");
@@ -64,8 +65,11 @@ var displayConcertCards = function (artist, image, show) {
     var cardDate = document.createElement("h5");
     cardDate.textContent = date;
 
+    var cardTime = document.createElement("h5");
+    cardTime.textContent = time;
+
     var cardVenue = document.createElement("h5");
-    cardVenue.textContent = "Venue: " + venue;
+    cardVenue.textContent = venue;
 
     var cardLocation = document.createElement("h5");
     cardLocation.textContent = location;
@@ -73,6 +77,7 @@ var displayConcertCards = function (artist, image, show) {
     // append concert data to content div
     cardContentDiv.appendChild(cardArtist);
     cardContentDiv.appendChild(cardDate);
+    cardContentDiv.appendChild(cardTime);
     cardContentDiv.appendChild(cardVenue);
     cardContentDiv.appendChild(cardLocation);
 
