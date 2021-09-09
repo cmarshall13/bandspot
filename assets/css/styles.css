@@ -3,10 +3,12 @@
 
 /* Color and font variables overriding Materialize */
 :root {
+  --off-white: rgb(222, 228, 223);
   --light-green: hsl(120, 42%, 75%);
   --spotify-green: hsl(141, 73%, 42%);
   --black-green: hsl(143, 85%, 8%);
   --light-purple: hsl(300, 46%, 75%);
+  --error: hsl(0, 81%, 61%);
   --font-gothic: "Gothic A1", Arial, sans-serif;
   --font-secondary: "Catamaran";
 }
@@ -125,7 +127,7 @@ h3 {
 }
 
 /* *CARD STYLING */
-#card-container{
+#card-container {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -167,4 +169,20 @@ footer {
 
 .everywhere {
   color: var(--light-purple);
+}
+
+/* *MODAL STYLING */
+
+.entire-modal {
+  opacity: 0.7;
+}
+
+.modal-close {
+  font-size: 1.3rem;
+  background: var(--light-green);
+  margin-right: 2rem;
+}
+
+.modal-texts {
+  color: var(--error);
 }
