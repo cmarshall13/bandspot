@@ -147,7 +147,7 @@ DOMEl.regionSelect.onchange = function () {
 }
 
 // Modal function
-function displayErrorModal(str) {
+function displayErrorModal(error) {
     const errorModalEl = document.querySelector('.modal');
     M.Modal.init(errorModalEl, {
         opacity: 0.6,
@@ -155,13 +155,14 @@ function displayErrorModal(str) {
         preventScrolling: true,
     });
 
+    // Select the modal
     let modalContent = document.querySelector('.modal-content');
-    console.log(modalContent);
+    // Create an h4 element with the error displayed
     let modalText = document.createElement('h4');
-    console.log(modalText);
-    modalText.textContent = 'Uh oh, something went wrong!' + str;
+    modalText.textContent = 'Uh oh, something went wrong! ' + error + '.';
+    // Append to modal
     modalContent.appendChild(modalText);
-    console.log(modalContent);
+    // Open the modal
     const instance = M.Modal.getInstance(errorModalEl);
     instance.open();
 }

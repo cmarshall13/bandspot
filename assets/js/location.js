@@ -12,7 +12,7 @@ var fetchLocation = function () {
             localStorage.setItem('userLocation', userLocation);
          });
    } catch (e) {
-      displayErrorModal();
+      displayErrorModal(e);
    }
 }
 
