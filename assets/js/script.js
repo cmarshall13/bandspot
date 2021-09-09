@@ -40,7 +40,7 @@ var populateArtistSelectBox = function () {
     DOMEl.optionsDiv.removeAttribute("class", "hidden");
 }
 
-var displayConcertCards = function (artist, show) {
+var displayConcertCards = function (artist, image, show) {
     // show the card container div
     DOMEl.cardContainerDiv.removeAttribute("class", "hidden");
 
@@ -49,11 +49,11 @@ var displayConcertCards = function (artist, show) {
     var location = show.location;
 
     var card = document.createElement("a");
+    card.setAttribute("class", "card small col s4");
+    card.style.backgroundImage = 'url('+image+')';
     card.href = "";
 
     var cardDiv = document.createElement("div");
-    card.setAttribute("class", "card small col s4");
-    cardDiv.style.backgroundImage = 'url("https://wallpapertag.com/wallpaper/full/c/1/c/113242-light-gray-background-2560x1440-full-hd.jpg")';
 
     var cardContentDiv = document.createElement("div");
 
@@ -89,11 +89,12 @@ var filterLocation = function () {
     DOMEl.cardContainerDiv.innerHTML = "";
     for (var events of eventsArray) {
         var artist = events.artist;
+        var image = events.image;
         // loop thru the shows array
         for (var show of events.shows) {
             var location = show.region;
             if (location === userLocation) {
-                displayConcertCards(artist, show);
+                displayConcertCards(artist, image, show);
             }
         }
     }
@@ -105,19 +106,20 @@ var filter = function (artistFilter, monthFilter) {
 
     for (var events of eventsArray) {
         var artist = events.artist;
+        var image = events.image;
         // check if this artist has any shows
         if (events.shows.length > 0) {
             // loop thru the shows array
             for (var show of events.shows) {
                 var month = show.date.substring(0, 2);
                 if (artistFilter === "All" && monthFilter === "All") {
-                    displayConcertCards(artist, show);
+                    displayConcertCards(artist, image, show);
                 } else if (artistFilter === "All" && month === monthFilter) {
-                    displayConcertCards(artist, show);
+                    displayConcertCards(artist, image, show);
                 } else if (artist === artistFilter && monthFilter === "All") {
-                    displayConcertCards(artist, show);
+                    displayConcertCards(artist, image, show);
                 } else if (artist === artistFilter && month === monthFilter) {
-                    displayConcertCards(artist, show);
+                    displayConcertCards(artist, image, show);
                 }
             }
         }
