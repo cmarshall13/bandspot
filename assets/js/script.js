@@ -17,6 +17,25 @@ var hideLoginDiv = function () {
     DOMEl.loginDiv.classList = "hidden";
 }
 
+
+var populateRegionSelectBox = function () {
+
+    DOMEl.regionColumnEl.removeAttribute("class", "hidden");
+    var opt = document.createElement("option");
+    opt.value = userLocation;
+    opt.textContent = userLocation;
+    DOMEl.regionSelect.appendChild(opt);
+    DOMEl.regionSelect.selectedIndex = 1;
+
+    for (var e of eventsArray) {
+
+        var opt = document.createElement("option");
+        opt.value = e.venue.region;
+        opt.textContent = e.venue.region;
+        DOMEl.regionSelect.appendChild(opt);
+    }
+}
+
 var populateArtistSelectBox = function () {
     hideLoginDiv();
 
@@ -36,7 +55,6 @@ var populateArtistSelectBox = function () {
 
     DOMEl.artColumnEl.removeAttribute("class", "hidden");
     DOMEl.monthColumnEl.removeAttribute("class", "hidden");
-    DOMEl.regionColumnEl.removeAttribute("class", "hidden");
     DOMEl.optionsDiv.removeAttribute("class", "hidden");
 }
 

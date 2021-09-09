@@ -19,14 +19,15 @@ var fetchConcertData = async function (artists) {
       }
    }
    filterLocation();
+   populateRegionSelectBox();
 }
 
 var saveConcertData = function (artist, data, index) {
    // Get the band image from the first event in the data
-   if(data.length > 0){
+   if (data.length > 0) {
       bandImage = data[0].artist.image_url;
       eventsArray.push({ artist: artist, image: bandImage, shows: [] });
-   }else{
+   } else {
       eventsArray.push({ artist: artist, shows: [] });
    }
    // Build event data object
