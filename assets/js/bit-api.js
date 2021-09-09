@@ -27,8 +27,6 @@ var saveConcertData = function (artist, data, index) {
    if (data.length > 0) {
       bandImage = data[0].artist.image_url;
       eventsArray.push({ artist: artist, image: bandImage, shows: [] });
-   } else {
-      eventsArray.push({ artist: artist, shows: [] });
    }
    // Build event data object
    for (var d of data) {
