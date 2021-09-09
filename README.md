@@ -1,7 +1,7 @@
 # bandspot
 
 ## Purpose
-Connect your Spotify & you'll be presented with a list of concerts from your top 20 favorite artists.
+Connect your Spotify and you'll be presented with a list of local concerts from your top 20 favorite artists.
 
 ## Built With
 * HTML

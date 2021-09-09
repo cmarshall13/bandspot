@@ -1,33 +1,53 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-
-    <title>Bandspot</title>
+    <!-- Gets rid of icon error in console -->
+    <link rel="shortcut icon" href="#" />
+    <title>Bandspot || Find Local Live Shows!</title>
   </head>
 
-  <body>
-    <header>
-      <h1 class="center-align">Bandspot</h1>
-    </header>
-
+  <body class="light-green lighten-5">
     <div class="container">
-      <div class="row">
+      <div class="logo center-align">
+        <img
+          src="./assets/img/logo.png"
+          alt="Bandspot
+        Logo"
+        />
+      </div>
+
+      <div class="hero-img" hidden>
+        <img src="" alt="" />
+      </div>
+
+      <div id="login" class="row">
         <div class="col s12 center-align">
-          <p>
-            Login with Spotify to find out when your favorite artists upcoming
-            concerts are!
-          </p>
+          <h1 class="welcome-text green-text text-darken-1">
+            WELCOME TO
+            <span class="purple-text text-darken-4 bandspot-text"
+              >BANDSPOT!</span
+            >
+          </h1>
+          <h2 class="intro-content">
+            Search for upcoming local shows for your favorite bands. We bring
+            the music to you, tailored to your unique taste, so you can spend
+            less time looking for concerts and more time going to them.
+          </h2>
         </div>
 
-        <div class="col s6 left-align">
+        <div class="col s12 center-align">
           <button
             class="waves-effect waves-light btn-large"
             id="spotify"
@@ -36,19 +56,90 @@
             Login with Spotify!
           </button>
         </div>
-
-        <div class="col s6 right-align">
-          <p>
-            This is where we have some cool graphic or filler or playlst etc.
-          </p>
+      </div>
+      <div class="search-page-text hidden">
+        <h3 class="showtime-text">IT'S SHOWTIME!</h3>
+        <p class="select-instruct">
+          These are the upcoming shows in your area from your top artists on
+          Spotify.
+          <br />
+          <br />
+          Filter the shows below for your convenience.
+        </p>
+      </div>
+      <div id="options" class="row options hidden">
+        <div class="col s4 artist-column hidden">
+          <label class="label" for="artists" id="artist-label">Artists:</label>
+          <select name="artists" class="artists-select" id="artists-select">
+            <option value="All">All</option>
+          </select>
         </div>
 
-        <div id="top-20" class="col s12 center-align">
-          <p>List of your top 20 Spotify artists:</p>
+        <div class="col s4 months-column hidden">
+          <label class="label" for="months">Months:</label>
+          <select name="months" class="months-select" id="months-select">
+            <option value="All">All</option>
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+
+        <div class="col s4 regions-column hidden">
+          <label class="label" for="region" id="region-label">Regions:</label>
+          <select name="region" class="regions-select" id="region-select">
+            <option value="All">All</option>
+          </select>
         </div>
       </div>
+
+      <div class="row">
+        <div id="card-container" class="col s12 m7 hidden"></div>
+      </div>
+
+      <!-- Modal Trigger -->
+      <a
+        class="waves-effect waves-light btn modal-trigger hidden"
+        href="#modal1"
+        >Modal</a
+      >
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal entire-modal">
+        <!-- Select this element to add error message display with js -->
+        <div class="modal-content"></div>
+
+        <div class="modal-footer">
+          <a
+            href="#!"
+            class="modal-close waves-effect waves-green btn-flat modal-close"
+            >Close</a
+          >
+        </div>
+      </div>
+
+      <footer class="purple darken-4">
+        <p class="center-align light-green-text text-lighten-5 footer-text">
+          <span class="footer-span">Made</span> for
+          <span class="footer-span">Music Enthusiasts</span>
+          <span class="everywhere">Everywhere</span>
+        </p>
+      </footer>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/location.js"></script>
+    <script src="./assets/js/spotify.js"></script>
+    <script src="./assets/js/bit-api.js"></script>
   </body>
 </html>
