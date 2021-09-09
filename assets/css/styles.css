@@ -145,6 +145,10 @@ h3 {
   background-size: cover;
 }
 
+.card .card-content {
+  padding: 0;
+}
+
 .card-content h4 {
   background: var(--light-green);
   opacity: 0.8;
