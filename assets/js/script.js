@@ -27,7 +27,7 @@ var populateRegionSelectBox = function () {
 
     for (var e of eventsArray) {
         // check if that event object has any shows
-        if(e.shows.length > 0){
+        if (e.shows.length > 0) {
             var region = e.shows[0].region;
             // If the current region does not match any of the options
             if (!DOMEl.regionSelect.innerHTML.includes(region)) {
@@ -143,16 +143,16 @@ var filter = function (artistFilter, monthFilter, regionFilter) {
                 // check if all filters are "All"
                 if (artistFilter === "All" && monthFilter === "All" && regionFilter === "All") {
                     displayConcertCards(artist, image, show);
-                // check if artist & region are "All"
+                    // check if artist & region are "All"
                 } else if (artistFilter === "All" && month === monthFilter && regionFilter === "All") {
                     displayConcertCards(artist, image, show);
-                // check if month & region are "All"
+                    // check if month & region are "All"
                 } else if (artist === artistFilter && monthFilter === "All" && regionFilter === "All") {
                     displayConcertCards(artist, image, show);
-                // check if artist & month are "All"
+                    // check if artist & month are "All"
                 } else if (artistFilter === "All" && monthFilter === "All" && region === regionFilter) {
                     displayConcertCards(artist, image, show);
-                // check if all are variable
+                    // check if all are variable
                 } else if (artist === artistFilter && month === monthFilter && region === regionFilter) {
                     displayConcertCards(artist, image, show);
                 // check if month "All"
