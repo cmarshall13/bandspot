@@ -25,6 +25,13 @@ var saveConcertData = function (artist, data, index) {
    eventsArray.push({ artist: artist, shows: [] });
 
    for (var d of data) {
-      eventsArray[index].shows.push({ date: d.datetime, venue: d.venue.name, location: d.venue.location, region: d.venue.region });
+      // Split into array of two strings representing date and time
+      dateTimeString = data.datetime.split('T');
+      // Format date as MM/DD/YY for card display
+      showDate = `${dateTimeString[0].substring(5, 7)}/${dateTimeString.substring(8, 10)}/${dateTimeString.substring(0, 4)}`;
+      // Format time as HH:MM for card display (removing seconds)
+      showTime = dateTimeString[1].substring(0, 5);
+      // Populate event data object
+      eventsArray[index].shows.push({ date: showDate, time: showTime, venue: d.venue.name, location: d.venue.location, region: d.venue.region });
    }
 }
