@@ -30,7 +30,7 @@ body {
 }
 
 #login {
-  margin-top: 4rem;
+  margin-top: 1rem;
 }
 
 /* *SPOTIFY BUTTON (overriding Materialize) */
@@ -51,17 +51,17 @@ body {
 /* *LANDING PAGE TEXT */
 .welcome-text {
   font-weight: bold;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 .intro-content {
-  padding: 4rem;
+  padding: 2rem;
 }
 
 /* *DROP-DOWN PAGE WELCOME TEXT STYLING */
 
 h3 {
-  margin-top: 6rem;
+  margin-top: 2rem;
 }
 
 .spotify-username {
@@ -91,7 +91,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .label {
@@ -109,7 +109,7 @@ h3 {
 .artists-select,
 .months-select,
 .regions-select {
-  margin-top: 4rem;
+  margin-top: 3rem;
   height: 4rem;
   background: var(--light-purple);
   border-radius: 5px;
@@ -125,15 +125,14 @@ h3 {
 }
 
 /* *CARD STYLING */
-
 #card-container{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 1rem;
 }
 
 .card {
-  margin: 15px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -143,12 +142,11 @@ h3 {
   border: 2px solid var(--light-green);
 }
 
-/* overwriting materialize styling */
+/* overwriting materialize card styling */
 .row .col.s4 {
   width: 30%;
   margin-left: 0%;
 }
-
 
 footer {
   bottom: 0;
