@@ -159,7 +159,7 @@ var filter = function (artistFilter, monthFilter, regionFilter) {
                 } else if (artist === artistFilter && monthFilter === "All" && region === regionFilter) {
                     displayConcertCards(artist, image, show);
                 // check if region is "All"
-                } else if (artist === artistFilter && month === monthFilter && region === "All") {
+                } else if (artist === artistFilter && month === monthFilter && regionFilter === "All") {
                     displayConcertCards(artist, image, show);
                 } else if (artistFilter === "All" && month === monthFilter && region === regionFilter) {
                     displayConcertCards(artist, image, show);
