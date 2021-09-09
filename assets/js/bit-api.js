@@ -14,7 +14,7 @@ var fetchConcertData = async function (artists) {
                saveConcertData(artist, data, eventsArray.length);
             });
       } catch (e) {
-         displayErrorModal();
+         displayErrorModal(e);
          continue;
       }
    }

@@ -95,5 +95,5 @@ var updateArtistsArray = function (items) {
 try {
     getAuthCode();
 } catch (e) {
-    displayErrorModal();
+    displayErrorModal(e);
 }
