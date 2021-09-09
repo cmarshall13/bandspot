@@ -19,7 +19,6 @@ var hideLoginDiv = function () {
 
 
 var populateRegionSelectBox = function () {
-    DOMEl.regionColumnEl.removeAttribute("class", "hidden");
     var opt = document.createElement("option");
     opt.value = userLocation;
     opt.textContent = userLocation;
@@ -42,22 +41,23 @@ var populateRegionSelectBox = function () {
     }
 }
 
-var populateArtistSelectBox = function () {
+var populateArtistSelectBox = function (artist) {
     hideLoginDiv();
 
     // Show welcome text at drop-down page
     DOMEl.searchPageText.removeAttribute("class", "hidden");
     DOMEl.searchPageText.setAttribute("class", "center-align");
 
-    for (var a of artists) {
+    if (!DOMEl.artSelect.innerHTML.includes(artist)) {
         var opt = document.createElement("option");
-        opt.value = a;
-        opt.textContent = a;
+        opt.value = artist;
+        opt.textContent = artist;
         DOMEl.artSelect.appendChild(opt);
     }
 
     DOMEl.artColumnEl.removeAttribute("class", "hidden");
     DOMEl.monthColumnEl.removeAttribute("class", "hidden");
+    DOMEl.regionColumnEl.removeAttribute("class", "hidden");
     DOMEl.optionsDiv.removeAttribute("class", "hidden");
 }
 

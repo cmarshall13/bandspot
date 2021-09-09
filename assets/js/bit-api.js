@@ -25,6 +25,7 @@ var fetchConcertData = async function (artists) {
 var saveConcertData = function (artist, data, index) {
    // Get the band image from the first event in the data
    if (data.length > 0) {
+      populateArtistSelectBox(artist);
       bandImage = data[0].artist.image_url;
       eventsArray.push({ artist: artist, image: bandImage, shows: [] });
    }
