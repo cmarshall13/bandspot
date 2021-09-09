@@ -64,8 +64,13 @@ body {
 
 /* *DROP-DOWN PAGE WELCOME TEXT STYLING */
 
-h3 {
+.showtime-text {
   margin-top: 2rem;
+  font-size: 3rem;
+  font-family: var(--font-secondary);
+  color: var(--black-green);
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .spotify-username {
