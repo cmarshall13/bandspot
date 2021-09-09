@@ -22,7 +22,6 @@ var fetchConcertData = async function (artists) {
 }
 
 var saveConcertData = function (artist, data, index) {
-
    // Get the band image from the first event in the data
    bandImage = data[0].artist.image_url;
    eventsArray.push({ artist: artist, shows: [] });
@@ -34,7 +33,6 @@ var saveConcertData = function (artist, data, index) {
       showDate = `${dateTimeString[0].substring(5, 7)}/${dateTimeString.substring(8, 10)}/${dateTimeString.substring(0, 4)}`;
       // Format time as HH:MM for card display (removing seconds)
       showTime = dateTimeString[1].substring(0, 5);
-
       eventsArray[index].shows.push({ date: showDate, time: showTime, venue: d.venue.name, location: d.venue.location, region: d.venue.region, image: bandImage });
    }
 }
