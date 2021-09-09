@@ -4,6 +4,7 @@
 /* Color and font variables overriding Materialize */
 :root {
   --off-white: rgb(222, 228, 223);
+  --gray: rgb(201, 198, 198);
   --light-green: hsl(120, 42%, 75%);
   --spotify-green: hsl(141, 73%, 42%);
   --black-green: hsl(143, 85%, 8%);
@@ -140,7 +141,7 @@ h3 {
   flex-wrap: wrap;
   text-align: center;
   align-items: center;
-  color: black;
+  color: var(--black-green);
   border: 2px solid var(--light-green);
   background-size: cover;
 }
@@ -150,6 +151,7 @@ h3 {
 }
 
 .card-content h4 {
+  color: var(--black-green);
   background: var(--light-green);
   font-weight: bold;
   padding: 5px;
@@ -157,7 +159,8 @@ h3 {
 }
 
 .card-content h5 {
-  background: var(--light-purple);
+  background: var(--gray);
+  color: var(--black-green);
   padding: 3px;
   border-radius: 5px;
 }
