@@ -142,6 +142,7 @@ h3 {
   align-items: center;
   color: black;
   border: 2px solid var(--light-green);
+  background-size: cover;
 }
 
 /* overwriting materialize card styling */
