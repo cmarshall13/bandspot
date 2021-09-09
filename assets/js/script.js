@@ -136,10 +136,10 @@ var filter = function (artistFilter, monthFilter, regionFilter) {
         var image = events.image;
         // check if this artist has any shows
         if (events.shows.length > 0) {
-            var region = events.shows[0].region;
             // loop thru the shows array
             for (var show of events.shows) {
                 var month = show.date.substring(0, 2);
+                var region = show.region;
                 // check if all filters are "All"
                 if (artistFilter === "All" && monthFilter === "All" && regionFilter === "All") {
                     displayConcertCards(artist, image, show);
@@ -154,6 +154,14 @@ var filter = function (artistFilter, monthFilter, regionFilter) {
                     displayConcertCards(artist, image, show);
                 // check if all are variable
                 } else if (artist === artistFilter && month === monthFilter && region === regionFilter) {
+                    displayConcertCards(artist, image, show);
+                // check if month "All"
+                } else if (artist === artistFilter && monthFilter === "All" && region === regionFilter) {
+                    displayConcertCards(artist, image, show);
+                // check if region is "All"
+                } else if (artist === artistFilter && month === monthFilter && region === "All") {
+                    displayConcertCards(artist, image, show);
+                } else if (artistFilter === "All" && month === monthFilter && region === regionFilter) {
                     displayConcertCards(artist, image, show);
                 }
             }
