@@ -1,11 +1,11 @@
 # bandspot
 
 ## Purpose
-Connect your Spotify or Apple Music & you'll be presented with a list of concerts from your favorite artists.
+Connect your Spotify & you'll be presented with a list of concerts from your top 20 favorite artists.
 
 ## Built With
 * HTML
-* CSS
+* CSS (Materialize)
 * JS
 
 ## Website
