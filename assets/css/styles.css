@@ -131,7 +131,7 @@ h3 {
   flex-wrap: wrap;
   text-align: center;
   align-items: center;
-  color: var(--light-green);
+  color: black;
   border: 2px solid var(--light-green);
 }
 

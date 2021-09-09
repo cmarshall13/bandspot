@@ -53,7 +53,7 @@ var displayConcertCards = function (artist, show) {
 
     var cardDiv = document.createElement("div");
     cardDiv.setAttribute("class", "card small col s4");
-    cardDiv.style.backgroundImage = 'url("https://wallpapertag.com/wallpaper/full/c/1/c/113242-light-gray-background-2560x1440-full-hd.jpg")';
+    //cardDiv.style.backgroundImage = 'url("https://wallpapertag.com/wallpaper/full/c/1/c/113242-light-gray-background-2560x1440-full-hd.jpg")';
 
     var cardContentDiv = document.createElement("div");
 
