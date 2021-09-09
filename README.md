@@ -5,7 +5,7 @@ Connect your Spotify & you'll be presented with a list of local concerts from yo
 
 ## Built With
 * HTML
-* CSS
+* CSS (Materialize)
 * JS
 
 ## Website
