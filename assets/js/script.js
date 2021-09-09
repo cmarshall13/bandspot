@@ -28,11 +28,21 @@ var populateRegionSelectBox = function () {
     DOMEl.regionSelect.selectedIndex = 1;
 
     for (var e of eventsArray) {
+        // Go through each available region select option so far
+        for (i = 0; i < regionSelect.options.length; i++) {
+            // If the current region does not match any of the options
+            if (e.venue.region !== regionSelect.options[i].text) {
+                // Create and append the new region to the select box
+                var opt = document.createElement("option");
+                opt.value = e.venue.region;
+                opt.textContent = e.venue.region;
+                DOMEl.regionSelect.appendChild(opt);
+            }
+            else {
+                continue;
+            }
+        }
 
-        var opt = document.createElement("option");
-        opt.value = e.venue.region;
-        opt.textContent = e.venue.region;
-        DOMEl.regionSelect.appendChild(opt);
     }
 }
 
