@@ -51,7 +51,7 @@ var displayConcertCards = function (artist, image, show) {
 
     var card = document.createElement("a");
     card.setAttribute("class", "card small col s4");
-    card.style.backgroundImage = 'url('+image+')';
+    card.style.backgroundImage = 'url(' + image + ')';
     card.href = "";
 
     var cardDiv = document.createElement("div");
@@ -78,7 +78,7 @@ var displayConcertCards = function (artist, image, show) {
     cardContentDiv.appendChild(cardArtist);
     cardContentDiv.appendChild(cardDate);
     cardContentDiv.appendChild(cardTime);
-    cardContentDiv.appendChild(cardVenue);
+    // cardContentDiv.appendChild(cardVenue);
     cardContentDiv.appendChild(cardLocation);
 
     // append content div to card div
