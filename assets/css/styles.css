@@ -126,6 +126,7 @@ h3 {
 
 /* *CARD STYLING */
 .card {
+  margin: 15px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
