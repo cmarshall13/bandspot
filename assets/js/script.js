@@ -48,8 +48,8 @@ var displayConcertCards = function (artist, show) {
     var date = show.date;
     var location = show.location;
 
-    var card = document.createElement("a");
-    card.href = "";
+    // var card = document.createElement("a");
+    // card.href = "";
 
     var cardDiv = document.createElement("div");
     cardDiv.setAttribute("class", "card small col s4");
@@ -78,10 +78,10 @@ var displayConcertCards = function (artist, show) {
     // append content div to card div
     cardDiv.appendChild(cardContentDiv);
 
-    card.appendChild(cardDiv);
+    // card.appendChild(cardDiv);
 
     // append card to container div
-    DOMEl.cardContainerDiv.append(card);
+    DOMEl.cardContainerDiv.append(cardDiv);
 }
 
 var filterLocation = function () {

@@ -125,6 +125,13 @@ h3 {
 }
 
 /* *CARD STYLING */
+
+#card-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .card {
   margin: 15px;
   display: flex;
@@ -135,6 +142,13 @@ h3 {
   color: black;
   border: 2px solid var(--light-green);
 }
+
+/* overwriting materialize styling */
+.row .col.s4 {
+  width: 30%;
+  margin-left: 0%;
+}
+
 
 footer {
   bottom: 0;
