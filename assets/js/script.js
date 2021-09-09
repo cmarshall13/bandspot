@@ -127,7 +127,7 @@ var filterLocation = function () {
     }
 }
 
-var filter = function (artistFilter, monthFilter) {
+var filter = function (artistFilter, monthFilter, regionFilter) {
     // empty the card container div
     DOMEl.cardContainerDiv.innerHTML = "";
 
@@ -136,16 +136,24 @@ var filter = function (artistFilter, monthFilter) {
         var image = events.image;
         // check if this artist has any shows
         if (events.shows.length > 0) {
+            var region = events.shows[0].region;
             // loop thru the shows array
             for (var show of events.shows) {
                 var month = show.date.substring(0, 2);
-                if (artistFilter === "All" && monthFilter === "All") {
+                // check if all filters are "All"
+                if (artistFilter === "All" && monthFilter === "All" && regionFilter === "All") {
                     displayConcertCards(artist, image, show);
-                } else if (artistFilter === "All" && month === monthFilter) {
+                // check if artist & region are "All"
+                } else if (artistFilter === "All" && month === monthFilter && regionFilter === "All") {
                     displayConcertCards(artist, image, show);
-                } else if (artist === artistFilter && monthFilter === "All") {
+                // check if month & region are "All"
+                } else if (artist === artistFilter && monthFilter === "All" && regionFilter === "All") {
                     displayConcertCards(artist, image, show);
-                } else if (artist === artistFilter && month === monthFilter) {
+                // check if artist & month are "All"
+                } else if (artistFilter === "All" && monthFilter === "All" && region === regionFilter) {
+                    displayConcertCards(artist, image, show);
+                // check if all are variable
+                } else if (artist === artistFilter && month === monthFilter && region === regionFilter) {
                     displayConcertCards(artist, image, show);
                 }
             }
@@ -161,18 +169,22 @@ DOMEl.spotifyBtn.onclick = function (event) {
 DOMEl.artSelect.onchange = function () {
     var month = DOMEl.monthSelect.value;
     var artist = DOMEl.artSelect.value;
-    filter(artist, month);
+    var region = DOMEl.regionSelect.value;
+    filter(artist, month, region);
 }
 
 DOMEl.monthSelect.onchange = function () {
     var month = DOMEl.monthSelect.value;
     var artist = DOMEl.artSelect.value;
-    filter(artist, month);
+    var region = DOMEl.regionSelect.value;
+    filter(artist, month, region);
 }
 
 DOMEl.regionSelect.onchange = function () {
+    var month = DOMEl.monthSelect.value;
+    var artist = DOMEl.artSelect.value;
     var region = DOMEl.regionSelect.value;
-    // send the region value to the filter
+    filter(artist, month, region);
 }
 
 // Modal function
@@ -195,4 +207,3 @@ function displayErrorModal(error) {
     const instance = M.Modal.getInstance(errorModalEl);
     instance.open();
 }
-
