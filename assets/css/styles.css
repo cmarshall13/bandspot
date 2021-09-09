@@ -145,6 +145,17 @@ h3 {
   background-size: cover;
 }
 
+.card-content {
+  background: var(--light-green);
+  opacity: 0.8;
+  padding: 0.3rem;
+  border-radius: 5px;
+}
+
+.card-content h5 {
+  background: var(--light-purple);
+}
+
 /* overwriting materialize card styling */
 .row .col.s4 {
   width: 30%;
