@@ -19,7 +19,6 @@ var hideLoginDiv = function () {
 
 
 var populateRegionSelectBox = function () {
-
     DOMEl.regionColumnEl.removeAttribute("class", "hidden");
     var opt = document.createElement("option");
     opt.value = userLocation;
@@ -28,21 +27,18 @@ var populateRegionSelectBox = function () {
     DOMEl.regionSelect.selectedIndex = 1;
 
     for (var e of eventsArray) {
-        // Go through each available region select option so far
-        for (i = 0; i < regionSelect.options.length; i++) {
+        // check if that event object has any shows
+        if(e.shows.length > 0){
+            var region = e.shows[0].region;
             // If the current region does not match any of the options
-            if (e.venue.region !== regionSelect.options[i].text) {
+            if (!DOMEl.regionSelect.innerHTML.includes(region)) {
                 // Create and append the new region to the select box
                 var opt = document.createElement("option");
-                opt.value = e.venue.region;
-                opt.textContent = e.venue.region;
+                opt.value = region;
+                opt.textContent = region;
                 DOMEl.regionSelect.appendChild(opt);
             }
-            else {
-                continue;
-            }
         }
-
     }
 }
 
