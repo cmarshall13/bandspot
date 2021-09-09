@@ -160,8 +160,10 @@ h3 {
 
 .card-content h5 {
   background: var(--gray);
+  font-weight: bold;
+  font-family: var(--font-secondary);
   color: var(--black-green);
-  padding: 3px;
+  padding: 4px;
   border-radius: 5px;
 }
 
