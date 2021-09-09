@@ -48,11 +48,11 @@ var displayConcertCards = function (artist, show) {
     var date = show.date;
     var location = show.location;
 
-    // var card = document.createElement("a");
-    // card.href = "";
+    var card = document.createElement("a");
+    card.href = "";
 
     var cardDiv = document.createElement("div");
-    cardDiv.setAttribute("class", "card small col s4");
+    card.setAttribute("class", "card small col s4");
     //cardDiv.style.backgroundImage = 'url("https://wallpapertag.com/wallpaper/full/c/1/c/113242-light-gray-background-2560x1440-full-hd.jpg")';
 
     var cardContentDiv = document.createElement("div");
@@ -78,10 +78,10 @@ var displayConcertCards = function (artist, show) {
     // append content div to card div
     cardDiv.appendChild(cardContentDiv);
 
-    // card.appendChild(cardDiv);
+    card.appendChild(cardDiv);
 
     // append card to container div
-    DOMEl.cardContainerDiv.append(cardDiv);
+    DOMEl.cardContainerDiv.append(card);
 }
 
 var filterLocation = function () {
