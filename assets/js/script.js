@@ -56,6 +56,7 @@ var displayConcertCards = function (artist, image, show) {
     var cardDiv = document.createElement("div");
 
     var cardContentDiv = document.createElement("div");
+    cardContentDiv.setAttribute("class", "card-content");
 
     var cardArtist = document.createElement("h4");
     cardArtist.textContent = artist;
