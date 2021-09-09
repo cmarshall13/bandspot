@@ -23,16 +23,21 @@ var fetchConcertData = async function (artists) {
 
 var saveConcertData = function (artist, data, index) {
    // Get the band image from the first event in the data
-   bandImage = data[0].artist.image_url;
-   eventsArray.push({ artist: artist, shows: [] });
+   if(data.length > 0){
+      bandImage = data[0].artist.image_url;
+      eventsArray.push({ artist: artist, image: bandImage, shows: [] });
+   }else{
+      eventsArray.push({ artist: artist, shows: [] });
+   }
    // Build event data object
    for (var d of data) {
-      // Split into array of two strings representing date and time
-      dateTimeString = data.datetime.split('T');
+      // Split datetime into two strings representing date and time
+      var date = d.datetime.split('T')[0];
+      var time = d.datetime.split('T')[1];
       // Format date as MM/DD/YY for card display
-      showDate = `${dateTimeString[0].substring(5, 7)}/${dateTimeString.substring(8, 10)}/${dateTimeString.substring(0, 4)}`;
+      date = `${date.substring(5, 7)}/${date.substring(8, 10)}/${date.substring(0, 4)}`;
       // Format time as HH:MM for card display (removing seconds)
-      showTime = dateTimeString[1].substring(0, 5);
-      eventsArray[index].shows.push({ date: showDate, time: showTime, venue: d.venue.name, location: d.venue.location, region: d.venue.region, image: bandImage });
+      time = time.substring(0, 5);
+      eventsArray[index].shows.push({ date: date, time: time, venue: d.venue.name, location: d.venue.location, region: d.venue.region });
    }
 }

@@ -53,7 +53,7 @@ var displayConcertCards = function (artist, show) {
 
     var cardDiv = document.createElement("div");
     card.setAttribute("class", "card small col s4");
-    //cardDiv.style.backgroundImage = 'url("https://wallpapertag.com/wallpaper/full/c/1/c/113242-light-gray-background-2560x1440-full-hd.jpg")';
+    cardDiv.style.backgroundImage = 'url("https://wallpapertag.com/wallpaper/full/c/1/c/113242-light-gray-background-2560x1440-full-hd.jpg")';
 
     var cardContentDiv = document.createElement("div");
 
@@ -109,7 +109,7 @@ var filter = function (artistFilter, monthFilter) {
         if (events.shows.length > 0) {
             // loop thru the shows array
             for (var show of events.shows) {
-                var month = show.date.substring(5, 7);
+                var month = show.date.substring(0, 2);
                 if (artistFilter === "All" && monthFilter === "All") {
                     displayConcertCards(artist, show);
                 } else if (artistFilter === "All" && month === monthFilter) {
