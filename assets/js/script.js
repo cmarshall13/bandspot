@@ -167,5 +167,3 @@ function displayErrorModal(error) {
     instance.open();
 }
 
-displayErrorModal('hi');
-
