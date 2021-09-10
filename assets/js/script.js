@@ -69,19 +69,33 @@ var displayConcertCards = function (artist, image, show) {
     var date = show.date;
     var time = show.time;
     var location = show.location;
+    var ticketsAvailable = show.tickets;
+    var ticketsBuyLink = show.buyLink;
 
-    var card = document.createElement("a");
+    var card = document.createElement("div");
     card.setAttribute("class", "card small col s4");
     card.style.backgroundImage = 'url(' + image + ')';
-    card.href = "";
 
     var cardDiv = document.createElement("div");
+    cardDiv.setAttribute("class", "card-content-container");
 
     var cardContentDiv = document.createElement("div");
     cardContentDiv.setAttribute("class", "card-content");
 
     var cardArtist = document.createElement("h4");
     cardArtist.textContent = artist;
+
+    // Create a ticket-buying text-link
+    var cardTickets = document.createElement("a");
+    cardTickets.setAttribute("class", "ticket-link");
+    cardTickets.setAttribute("target", "_blank");
+    cardTickets.href = ticketsBuyLink;
+    if (ticketsAvailable === 'available') {
+        cardTickets.textContent = 'BUY TICKETS'
+    }
+    else {
+        cardTickets.textContent = 'TICKETS UNAVAILABLE';
+    }
 
     var cardDate = document.createElement("h5");
     cardDate.textContent = date;
@@ -98,6 +112,7 @@ var displayConcertCards = function (artist, image, show) {
     // append concert data to content div
     cardContentDiv.appendChild(cardArtist);
     cardContentDiv.appendChild(cardDate);
+    cardContentDiv.appendChild(cardTickets);
     cardContentDiv.appendChild(cardTime);
     // cardContentDiv.appendChild(cardVenue);
     cardContentDiv.appendChild(cardLocation);
@@ -155,10 +170,10 @@ var filter = function (artistFilter, monthFilter, regionFilter) {
                     // check if all are variable
                 } else if (artist === artistFilter && month === monthFilter && region === regionFilter) {
                     displayConcertCards(artist, image, show);
-                // check if month "All"
+                    // check if month "All"
                 } else if (artist === artistFilter && monthFilter === "All" && region === regionFilter) {
                     displayConcertCards(artist, image, show);
-                // check if region is "All"
+                    // check if region is "All"
                 } else if (artist === artistFilter && month === monthFilter && regionFilter === "All") {
                     displayConcertCards(artist, image, show);
                 } else if (artistFilter === "All" && month === monthFilter && region === regionFilter) {

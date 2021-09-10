@@ -1,17 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap");
 
+/* Fade in animation */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* Color and font variables overriding Materialize */
 :root {
   --off-white: rgb(222, 228, 223);
+  --gray: rgb(201, 198, 198);
   --light-green: hsl(120, 42%, 75%);
   --spotify-green: hsl(141, 73%, 42%);
+  --black-green: hsl(143, 85%, 8%);
+  --black: rgb(6, 7, 7);
+  --light-purple: hsl(300, 46%, 75%);
   --error: hsl(0, 81%, 61%);
-
+  --font-gothic: "Gothic A1", Arial, sans-serif;
+  --font-secondary: "Catamaran";
 }
 
 body {
-  background-color: black;
+  font-family: var(--font-gothic);
 }
 
 .container {
@@ -42,20 +58,19 @@ body {
 
 #spotify {
   background-color: var(--spotify-green);
+  font-family: var(--font-gothic);
   font-size: 2rem;
   font-weight: bold;
 }
 
 /* *LANDING PAGE TEXT */
 .welcome-text {
-  color:var(--off-white);
   font-weight: bold;
   font-size: 4rem;
 }
 
 .intro-content {
   padding: 2rem;
-  color:var(--off-white);
 }
 
 /* *DROP-DOWN PAGE WELCOME TEXT STYLING */
@@ -76,6 +91,8 @@ body {
 }
 
 .select-instruct {
+  background: var(--light-green);
+  color: var(--black-green);
   border-radius: 5px;
   padding: 2rem;
   margin-top: 3rem;
@@ -87,6 +104,7 @@ body {
 #artists-select,
 #region-select {
   display: flex;
+  flex-wrap: wrap;
 }
 
 #options {
@@ -104,6 +122,7 @@ body {
   padding: 1rem 6rem;
   background: rgb(165, 218, 165);
   color: var(--black-green);
+  font-family: var(--font-secondary);
   font-weight: bold;
   border-radius: 25px;
 }
@@ -113,6 +132,7 @@ body {
 .regions-select {
   margin-top: 3rem;
   height: 4rem;
+  background: var(--light-purple);
   border-radius: 5px;
   padding: 1rem;
   font-size: 1.5rem;
@@ -122,6 +142,7 @@ body {
 .artists-select option,
 .months-select option,
 .regions-select option {
+  font-family: var(--font-secondary);
 }
 
 /* *CARD STYLING */
@@ -136,24 +157,66 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  overflow: hidden;
   text-align: center;
   align-items: center;
+  color: var(--black-green);
   border: 2px solid var(--light-green);
   background-size: cover;
+  transition: all 0.5s;
 }
 
+.ticket-link {
+  transition: 0.5s;
+  background: var(--black);
+  border: 4px solid var(--off-white);
+  color: var(--off-white);
+  font-family: var(--font-gothic);
+  padding: 15px;
+  background: black;
+  border-radius: 3px;
+  font-size: 1.4rem;
+  display: none;
+}
+
+/* HIDING CARD ELEMENTS AND SHOWING TICKET LINK */
+.card:hover {
+  transition: 0.5s;
+  filter: brightness(70%);
+}
+
+.card:hover .card-content h5 {
+  display: none;
+}
+
+.card:hover .card-content .ticket-link {
+  display: block;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.card:hover .ticket-link {
+  transition: ease-in 0.5s;
+  filter: opacity(2);
+  display: inline;
+}
 .card .card-content {
   padding: 0;
 }
 
 .card-content h4 {
+  color: var(--black-green);
+  background: var(--light-green);
   font-weight: bold;
   padding: 5px;
   border-radius: 5px;
 }
 
 .card-content h5 {
+  background: var(--gray);
   font-weight: bold;
+  font-family: var(--font-secondary);
+  color: var(--black-green);
   padding: 4px;
   border-radius: 5px;
 }
@@ -168,22 +231,21 @@ footer {
   bottom: 0;
   position: relative;
   border-radius: 5px;
-  box-shadow: 0px -5px 10px -2px var(--spotify-green);
+  box-shadow: 0px -5px 10px -2px var(--black-green);
 }
 
 .footer-text {
   padding: 2rem;
   font-size: 3rem;
   font-weight: bold;
-  color: var(--spotify-green);
 }
 
 .footer-span {
-  color: white;
+  color: var(--light-green);
 }
 
 .everywhere {
-  color: var(--spotify-green);
+  color: var(--light-purple);
 }
 
 /* *MODAL STYLING */
@@ -199,5 +261,15 @@ footer {
 }
 
 .modal-texts {
-  color: hsl(0, 81%, 61%);
+  color: var(--error);
+}
+
+@media screen and (max-width: 600px) {
+  #card-container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
 }
