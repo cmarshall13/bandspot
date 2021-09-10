@@ -1,6 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap");
 
+/* Fade in animation */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* Color and font variables overriding Materialize */
 :root {
   --off-white: rgb(222, 228, 223);
@@ -8,6 +19,7 @@
   --light-green: hsl(120, 42%, 75%);
   --spotify-green: hsl(141, 73%, 42%);
   --black-green: hsl(143, 85%, 8%);
+  --black: rgb(6, 7, 7);
   --light-purple: hsl(300, 46%, 75%);
   --error: hsl(0, 81%, 61%);
   --font-gothic: "Gothic A1", Arial, sans-serif;
@@ -145,26 +157,52 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  position: relative;
+  overflow: hidden;
   text-align: center;
   align-items: center;
   color: var(--black-green);
   border: 2px solid var(--light-green);
   background-size: cover;
-  transition: 0.5s;
+  transition: all 0.5s;
 }
 
+.ticket-link {
+  transition: 0.5s;
+  background: var(--black);
+  border: 4px solid var(--off-white);
+  color: var(--off-white);
+  font-family: var(--font-gothic);
+  padding: 15px;
+  background: black;
+  border-radius: 3px;
+  font-size: 1.4rem;
+  display: none;
+}
+
+/* HIDING CARD ELEMENTS AND SHOWING TICKET LINK */
 .card:hover {
   transition: 0.5s;
-  filter: blur(2px) brightness(40%);
+  filter: brightness(70%);
 }
 
+.card:hover .card-content h4,
+.card:hover .card-content h5 {
+  display: none;
+}
+
+.card:hover .card-content .ticket-link {
+  display: block;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.card:hover .ticket-link {
+  transition: ease-in 0.5s;
+  filter: opacity(2);
+  display: inline;
+}
 .card .card-content {
   padding: 0;
-}
-
-.tickets-link {
-  position: absolute;
 }
 
 .card-content h4 {
