@@ -89,10 +89,11 @@ var displayConcertCards = function (artist, image, show) {
     var cardTickets = document.createElement("a");
     cardTickets.setAttribute("class", "ticket-link");
     cardTickets.setAttribute("target", "_blank");
-    cardTickets.href = ticketsBuyLink;
 
     if (ticketsAvailable === 'available') {
-        cardTickets.textContent = 'BUY TICKETS'
+        cardTickets.textContent = 'BUY TICKETS';
+        cardTickets.href = ticketsBuyLink;
+        cardTickets.setAttribute("target", "_blank");
     }
     else {
         cardTickets.textContent = 'TICKETS UNAVAILABLE';
