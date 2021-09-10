@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@200&display=swap');
 /* Fade in animation */
 
 @keyframes fadeIn {
@@ -15,20 +13,13 @@
 /* Color and font variables overriding Materialize */
 :root {
   --off-white: rgb(222, 228, 223);
-  --gray: rgb(201, 198, 198);
-  --light-green: hsl(120, 42%, 75%);
   --spotify-green: hsl(141, 73%, 42%);
-  --black-green: hsl(143, 85%, 8%);
-  --black: rgb(6, 7, 7);
   --light-purple: hsl(300, 46%, 75%);
   --error: hsl(0, 81%, 61%);
-  --font-gothic: "Gothic A1", Arial, sans-serif;
-  --font-secondary: "Catamaran";
 }
 
 body {
-  font-family: var(--font-gothic);
-  background-color: var(--black);
+background-color: black;
 }
 
 .container {
@@ -55,22 +46,16 @@ body {
   width: 400px;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-family: 'Rokkitt', serif;
 }
 
 #spotify {
   background-color: var(--spotify-green);
-  font-family: var(--font-gothic);
   font-size: 2rem;
   font-weight: bold;
 }
 
 /* *LANDING PAGE TEXT */
-.welcome-text {
-  color: var(--off-white);
-  font-weight: bold;
-  font-size: 4rem;
-}
-
 .intro-content {
   color: var(--off-white);
   padding: 2rem;
@@ -79,24 +64,23 @@ body {
 /* *DROP-DOWN PAGE WELCOME TEXT STYLING */
 
 .showtime-text {
-  margin-top: 2rem;
-  font-size: 3rem;
-  font-family: var(--font-secondary);
-  color: var(--black-green);
-  text-decoration: underline;
+  margin-top: 7rem;
+  font-size: 2.5rem;
+  font-family: 'Rokkitt', serif;  
+  color: var(--off-white);
   font-weight: bold;
 }
 
 .spotify-username {
-  font-family: var(--font-secondary);
+  font-family: 'Rokkitt', serif; 
   color: var(--spotify-green);
   font-weight: bold;
 }
 
 .select-instruct {
-  background: var(--light-green);
-  color: var(--black-green);
-  border-radius: 5px;
+  color: var(--off-white);
+  font-family: 'Rokkitt', serif;
+  border-radius: 2px;
   padding: 2rem;
   margin-top: 3rem;
   font-size: 1.5rem;
@@ -114,18 +98,17 @@ body {
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 2rem;
 }
 
 .label {
   align-items: center;
-  text-decoration: underline;
   font-size: 2rem;
   padding: 1rem 6rem;
-  background: rgb(165, 218, 165);
-  color: var(--black-green);
-  font-family: var(--font-secondary);
+  background: var(--spotify-green); 
+  color: var(--off-white);
+  font-family: 'Rokkitt', serif;
   font-weight: bold;
   border-radius: 25px;
 }
@@ -135,13 +118,19 @@ body {
 .regions-select {
   margin-top: 3rem;
   height: 4rem;
-  background: var(--light-purple);
+  color: var(--off-white);
+  background:  black;
   border-radius: 5px;
   padding: 1rem;
   font-size: 1.5rem;
   margin-bottom: 2rem;
 }
 
+.artists-select option,
+.months-select option,
+.regions-select option {
+  font-family: 'Rokkitt', serif;
+}
 /* *CARD STYLING */
 #card-container {
   display: flex;
@@ -157,7 +146,7 @@ body {
   overflow: hidden;
   text-align: center;
   align-items: center;
-  color: var(--black-green);
+  color: var(--off-white);
   border: 2px solid var(--light-green);
   background-size: cover;
   transition: all 0.5s;
@@ -167,17 +156,18 @@ body {
   transition: 0.2s;
   background: var(--black);
   border: 4px solid var(--off-white);
-  color: var(--off-white);
-  font-family: var(--font-gothic);
+  color: white;
+  font-family: 'Rokkitt', serif;
   padding: 15px;
   background: black;
   border-radius: 3px;
-  font-size: 1.4rem;
+  font-size: 2rem;
   display: none;
 }
 
 /* HIDING CARD ELEMENTS AND SHOWING TICKET LINK */
 .card:hover {
+  transition: 0.5s;
   filter: brightness(70%);
 }
 
@@ -202,18 +192,16 @@ body {
 }
 
 .card-content h4 {
-  color: var(--black-green);
-  background: var(--light-green);
+  color: black;
   font-weight: bold;
   padding: 5px;
   border-radius: 5px;
 }
 
 .card-content h5 {
-  background: var(--gray);
   font-weight: bold;
-  font-family: var(--font-secondary);
-  color: var(--black-green);
+  font-family: 'Rokkitt', serif;
+  color:black;
   padding: 4px;
   border-radius: 5px;
 }
@@ -232,6 +220,7 @@ footer {
 }
 
 .footer-text {
+  font-family: 'Rokkitt', serif;
   font-size: 3rem;
   font-weight: bold;
   color: var(--spotify-green);
