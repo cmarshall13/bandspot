@@ -225,14 +225,13 @@ body {
 }
 
 footer {
+  position: absolute;
+  width: 90%;
   bottom: 0;
-  position: relative;
-  border-radius: 5px;
-  box-shadow: 2px 2px 10px -2px var(--spotify-green);
+  height: 60px;
 }
 
 .footer-text {
-  padding: 2rem;
   font-size: 3rem;
   font-weight: bold;
   color: var(--spotify-green);
