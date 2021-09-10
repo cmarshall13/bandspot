@@ -24,8 +24,8 @@ body {
 }
 
 .logo img {
-  height: 300px;
-  background: black;
+  width: 40%;
+  padding-top: 20px;
 }
 
 #login {
