@@ -8,12 +8,11 @@ var fetchLocation = function () {
             return response.json();
          })
          .then(function (data) {
-            console.log(data);
             userLocation = data.region_code;
             localStorage.setItem('userLocation', userLocation);
          });
    } catch (e) {
-      displayErrorModal();
+      displayErrorModal(e);
    }
 }
 

@@ -3,10 +3,13 @@
 
 /* Color and font variables overriding Materialize */
 :root {
+  --off-white: rgb(222, 228, 223);
+  --gray: rgb(201, 198, 198);
   --light-green: hsl(120, 42%, 75%);
   --spotify-green: hsl(141, 73%, 42%);
   --black-green: hsl(143, 85%, 8%);
-  --light-purple: rgb(221, 164, 221);
+  --light-purple: hsl(300, 46%, 75%);
+  --error: hsl(0, 81%, 61%);
   --font-gothic: "Gothic A1", Arial, sans-serif;
   --font-secondary: "Catamaran";
 }
@@ -25,13 +28,13 @@ body {
 }
 
 .logo img {
-  box-shadow: 2px 5px 15px -2px var(--black-green);
   height: 300px;
   width: 100%;
+  background: black;
 }
 
 #login {
-  margin-top: 4rem;
+  margin-top: 1rem;
 }
 
 /* *SPOTIFY BUTTON (overriding Materialize) */
@@ -52,17 +55,22 @@ body {
 /* *LANDING PAGE TEXT */
 .welcome-text {
   font-weight: bold;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 .intro-content {
-  padding: 4rem;
+  padding: 2rem;
 }
 
 /* *DROP-DOWN PAGE WELCOME TEXT STYLING */
 
-h3 {
-  margin-top: 6rem;
+.showtime-text {
+  margin-top: 2rem;
+  font-size: 3rem;
+  font-family: var(--font-secondary);
+  color: var(--black-green);
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .spotify-username {
@@ -92,7 +100,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .label {
@@ -110,7 +118,7 @@ h3 {
 .artists-select,
 .months-select,
 .regions-select {
-  margin-top: 4rem;
+  margin-top: 3rem;
   height: 4rem;
   background: var(--light-purple);
   border-radius: 5px;
@@ -126,14 +134,49 @@ h3 {
 }
 
 /* *CARD STYLING */
+#card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
 .card {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
   align-items: center;
-  color: var(--light-green);
+  color: var(--black-green);
   border: 2px solid var(--light-green);
+  background-size: cover;
+}
+
+.card .card-content {
+  padding: 0;
+}
+
+.card-content h4 {
+  color: var(--black-green);
+  background: var(--light-green);
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.card-content h5 {
+  background: var(--gray);
+  font-weight: bold;
+  font-family: var(--font-secondary);
+  color: var(--black-green);
+  padding: 4px;
+  border-radius: 5px;
+}
+
+/* overwriting materialize card styling */
+.row .col.s4 {
+  width: 30%;
+  margin-left: 0%;
 }
 
 footer {
@@ -155,4 +198,20 @@ footer {
 
 .everywhere {
   color: var(--light-purple);
+}
+
+/* *MODAL STYLING */
+
+.entire-modal {
+  opacity: 0.7;
+}
+
+.modal-close {
+  font-size: 1.3rem;
+  background: var(--light-green);
+  margin-right: 2rem;
+}
+
+.modal-texts {
+  color: var(--error);
 }

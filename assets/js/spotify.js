@@ -88,12 +88,11 @@ var updateArtistsArray = function (items) {
             artists.push(i.name);
         }
     }
-    populateArtistSelectBox();
     fetchConcertData(artists);
 }
 
 try {
     getAuthCode();
 } catch (e) {
-    console.log(e);
+    displayErrorModal(e);
 }
