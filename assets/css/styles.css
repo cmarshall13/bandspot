@@ -150,6 +150,13 @@ body {
   color: var(--black-green);
   border: 2px solid var(--light-green);
   background-size: cover;
+  transition: 0.5s;
+}
+
+.card:hover {
+  transition: 0.5s;
+  opacity: 0.3;
+  filter: blur(2px);
 }
 
 .card .card-content {
