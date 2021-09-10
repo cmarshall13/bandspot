@@ -19,7 +19,9 @@
 }
 
 body {
-background-color: black;
+  background-color: black;
+  position: relative;
+  min-height: 100vh;
 }
 
 .container {
@@ -32,7 +34,7 @@ background-color: black;
 }
 
 .logo img {
-  width: 40%;
+  width: 50%;
   padding-top: 20px;
 }
 
@@ -214,9 +216,10 @@ background-color: black;
 
 footer {
   position: absolute;
-  width: 90%;
   bottom: 0;
-  height: 60px;
+  width: 100%;
+  height: 10px;
+  padding-top: 20px;
 }
 
 .footer-text {
@@ -224,6 +227,7 @@ footer {
   font-size: 3rem;
   font-weight: bold;
   color: var(--spotify-green);
+  margin: 0px;
 }
 
 .footer-span {
