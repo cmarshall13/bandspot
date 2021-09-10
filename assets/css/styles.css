@@ -185,7 +185,6 @@ body {
   filter: brightness(70%);
 }
 
-.card:hover .card-content h4,
 .card:hover .card-content h5 {
   display: none;
 }
