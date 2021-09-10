@@ -28,6 +28,7 @@
 
 body {
   font-family: var(--font-gothic);
+  background-color: var(--black);
 }
 
 .container {
@@ -65,11 +66,13 @@ body {
 
 /* *LANDING PAGE TEXT */
 .welcome-text {
+  color: var(--off-white);
   font-weight: bold;
   font-size: 4rem;
 }
 
 .intro-content {
+  color: var(--off-white);
   padding: 2rem;
 }
 
@@ -137,12 +140,6 @@ body {
   padding: 1rem;
   font-size: 1.5rem;
   margin-bottom: 2rem;
-}
-
-.artists-select option,
-.months-select option,
-.regions-select option {
-  font-family: var(--font-secondary);
 }
 
 /* *CARD STYLING */
@@ -231,21 +228,22 @@ footer {
   bottom: 0;
   position: relative;
   border-radius: 5px;
-  box-shadow: 0px -5px 10px -2px var(--black-green);
+  box-shadow: 2px 2px 10px -2px var(--spotify-green);
 }
 
 .footer-text {
   padding: 2rem;
   font-size: 3rem;
   font-weight: bold;
+  color: var(--spotify-green);
 }
 
 .footer-span {
-  color: var(--light-green);
+  color: var(--off-white);
 }
 
 .everywhere {
-  color: var(--light-purple);
+  color: var(--spotify-green);
 }
 
 /* *MODAL STYLING */
@@ -269,7 +267,5 @@ footer {
     flex-direction: column;
   }
 
-  .card {
-    width: 100%;
-  }
+  /* TODO: Figure out how to override Materialize width and get card to take up whole row */
 }

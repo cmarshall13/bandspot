@@ -90,6 +90,7 @@ var displayConcertCards = function (artist, image, show) {
     cardTickets.setAttribute("class", "ticket-link");
     cardTickets.setAttribute("target", "_blank");
     cardTickets.href = ticketsBuyLink;
+
     if (ticketsAvailable === 'available') {
         cardTickets.textContent = 'BUY TICKETS'
     }
