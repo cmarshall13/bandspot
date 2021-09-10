@@ -145,6 +145,7 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
   text-align: center;
   align-items: center;
   color: var(--black-green);
@@ -155,12 +156,15 @@ body {
 
 .card:hover {
   transition: 0.5s;
-  opacity: 0.3;
-  filter: blur(2px);
+  filter: blur(2px) brightness(40%);
 }
 
 .card .card-content {
   padding: 0;
+}
+
+.tickets-link {
+  position: absolute;
 }
 
 .card-content h4 {
