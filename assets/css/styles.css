@@ -28,9 +28,8 @@ body {
 }
 
 .logo img {
-  height: 300px;
-  width: 100%;
-  background: black;
+  width: 40%;
+  padding-top: 5px;
 }
 
 #login {
