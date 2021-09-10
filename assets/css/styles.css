@@ -4,18 +4,14 @@
 /* Color and font variables overriding Materialize */
 :root {
   --off-white: rgb(222, 228, 223);
-  --gray: rgb(201, 198, 198);
   --light-green: hsl(120, 42%, 75%);
   --spotify-green: hsl(141, 73%, 42%);
-  --black-green: hsl(143, 85%, 8%);
-  --light-purple: hsl(300, 46%, 75%);
   --error: hsl(0, 81%, 61%);
-  --font-gothic: "Gothic A1", Arial, sans-serif;
-  --font-secondary: "Catamaran";
+
 }
 
 body {
-  font-family: var(--font-gothic);
+  background-color: black;
 }
 
 .container {
@@ -29,7 +25,6 @@ body {
 
 .logo img {
   height: 300px;
-  width: 100%;
   background: black;
 }
 
@@ -47,19 +42,20 @@ body {
 
 #spotify {
   background-color: var(--spotify-green);
-  font-family: var(--font-gothic);
   font-size: 2rem;
   font-weight: bold;
 }
 
 /* *LANDING PAGE TEXT */
 .welcome-text {
+  color:var(--off-white);
   font-weight: bold;
   font-size: 4rem;
 }
 
 .intro-content {
   padding: 2rem;
+  color:var(--off-white);
 }
 
 /* *DROP-DOWN PAGE WELCOME TEXT STYLING */
@@ -80,8 +76,6 @@ body {
 }
 
 .select-instruct {
-  background: var(--light-green);
-  color: var(--black-green);
   border-radius: 5px;
   padding: 2rem;
   margin-top: 3rem;
@@ -110,7 +104,6 @@ body {
   padding: 1rem 6rem;
   background: rgb(165, 218, 165);
   color: var(--black-green);
-  font-family: var(--font-secondary);
   font-weight: bold;
   border-radius: 25px;
 }
@@ -120,7 +113,6 @@ body {
 .regions-select {
   margin-top: 3rem;
   height: 4rem;
-  background: var(--light-purple);
   border-radius: 5px;
   padding: 1rem;
   font-size: 1.5rem;
@@ -130,7 +122,6 @@ body {
 .artists-select option,
 .months-select option,
 .regions-select option {
-  font-family: var(--font-secondary);
 }
 
 /* *CARD STYLING */
@@ -147,7 +138,6 @@ body {
   flex-wrap: wrap;
   text-align: center;
   align-items: center;
-  color: var(--black-green);
   border: 2px solid var(--light-green);
   background-size: cover;
 }
@@ -157,18 +147,13 @@ body {
 }
 
 .card-content h4 {
-  color: var(--black-green);
-  background: var(--light-green);
   font-weight: bold;
   padding: 5px;
   border-radius: 5px;
 }
 
 .card-content h5 {
-  background: var(--gray);
   font-weight: bold;
-  font-family: var(--font-secondary);
-  color: var(--black-green);
   padding: 4px;
   border-radius: 5px;
 }
@@ -183,21 +168,22 @@ footer {
   bottom: 0;
   position: relative;
   border-radius: 5px;
-  box-shadow: 0px -5px 10px -2px var(--black-green);
+  box-shadow: 0px -5px 10px -2px var(--spotify-green);
 }
 
 .footer-text {
   padding: 2rem;
   font-size: 3rem;
   font-weight: bold;
+  color: var(--spotify-green);
 }
 
 .footer-span {
-  color: var(--light-green);
+  color: white;
 }
 
 .everywhere {
-  color: var(--light-purple);
+  color: var(--spotify-green);
 }
 
 /* *MODAL STYLING */
@@ -213,5 +199,5 @@ footer {
 }
 
 .modal-texts {
-  color: var(--error);
+  color: hsl(0, 81%, 61%);
 }
