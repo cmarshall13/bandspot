@@ -30,8 +30,7 @@ body {
   min-height: 90vh;
 }
 
-.logo img {
-  width: 50%;
+#logo img {
   padding-top: 20px;
 }
 
