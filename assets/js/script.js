@@ -70,6 +70,7 @@ var displayConcertCards = function(artist, image, show){
     // card img is the artists image
     var cardImg = document.createElement("div");
     cardImg.classList.add("card-image");
+    cardImg.classList.add("hide-on-small-only");
 
     var img = document.createElement("img");
     img.src = image;
