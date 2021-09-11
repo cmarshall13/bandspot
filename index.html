@@ -30,12 +30,6 @@
 
       <div id="login" class="row">
         <div class="col s12 center-align">
-          <!-- <h1 class="welcome-text green-text text-darken-1">
-            WELCOME TO
-            <span class="text-darken-4 bandspot-text"
-              >BANDSPOT!</span
-            >
-          </h1> -->
           <h2 class="intro-content">
             Search for upcoming local shows for your favorite bands. We bring
             the music to you, tailored to your unique taste, so you can spend
@@ -53,25 +47,16 @@
           </button>
         </div>
       </div>
-      <div class="search-page-text hidden">
-        <h3 class="showtime-text">IT'S SHOWTIME!</h3>
-        <p class="select-instruct">
-          These are the upcoming shows in your area from your top artists on
-          Spotify.
-          <br />
-          <br />
-          Filter the shows below for your convenience.
-        </p>
-      </div>
+
       <div id="options" class="row options hidden">
-        <div class="col s4 artist-column hidden">
+        <div class="col s4 artist-column option hidden">
           <label class="label" for="artists" id="artist-label">Artists</label>
           <select name="artists" class="artists-select" id="artists-select">
             <option value="All">All</option>
           </select>
         </div>
 
-        <div class="col s4 months-column hidden">
+        <div class="col s4 months-column option hidden">
           <label class="label" for="months">Months</label>
           <select name="months" class="months-select" id="months-select">
             <option value="All">All</option>
@@ -90,7 +75,7 @@
           </select>
         </div>
 
-        <div class="col s4 regions-column hidden">
+        <div class="col s4 regions-column option hidden">
           <label class="label" for="region" id="region-label">Regions</label>
           <select name="region" class="regions-select" id="region-select">
             <option value="All">All</option>

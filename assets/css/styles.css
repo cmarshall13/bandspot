@@ -21,17 +21,13 @@
 body {
   background-color: black;
   position: relative;
-  min-height: 100vh;
+  min-height: 95vh;
 }
 
 .container {
   max-width: 90%;
   width: 90%;
   min-height: 90vh;
-}
-/* *HIDDEN UTILITY CLASS */
-.hidden {
-  display: none;
 }
 
 .logo img {
@@ -64,31 +60,6 @@ body {
   padding: 2rem;
 }
 
-/* *DROP-DOWN PAGE WELCOME TEXT STYLING */
-
-.showtime-text {
-  margin-top: 7rem;
-  font-size: 2.5rem;
-  font-family: 'Rokkitt', serif;  
-  color: var(--off-white);
-  font-weight: bold;
-}
-
-.spotify-username {
-  font-family: 'Rokkitt', serif; 
-  color: var(--spotify-green);
-  font-weight: bold;
-}
-
-.select-instruct {
-  color: var(--off-white);
-  font-family: 'Rokkitt', serif;
-  border-radius: 2px;
-  padding: 2rem;
-  margin-top: 3rem;
-  font-size: 1.5rem;
-}
-
 /* *DROP-DOWN STYLING */
 #months-select,
 #artists-select,
@@ -100,13 +71,22 @@ body {
 #options {
   padding: 1rem;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  justify-content: space-around;
   margin-top: 2rem;
 }
 
-.label {
-  align-items: center;
+.option {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 28%;
+}
+
+.option .label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   font-size: 2rem;
   padding: 1rem 6rem;
   background: var(--spotify-green); 
@@ -253,6 +233,11 @@ footer {
 
 .modal-texts {
   color: var(--error);
+}
+
+/* *HIDDEN UTILITY CLASS */
+.hidden {
+  display: none;
 }
 
 @media screen and (max-width: 600px) {

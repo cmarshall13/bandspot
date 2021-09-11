@@ -7,8 +7,6 @@ var DOMEl = {
     regionColumnEl: document.querySelector('.regions-column'),
     spotifyBtn: document.getElementById("spotify"),
     loginDiv: document.querySelector("#login"),
-    searchPageText: document.querySelector('.search-page-text'),
-    spotifySpan: document.querySelector('.spotify-username'),
     optionsDiv: document.getElementById("options"),
     cardContainerDiv: document.getElementById("card-container"),
 }
@@ -16,7 +14,6 @@ var DOMEl = {
 var hideLoginDiv = function () {
     DOMEl.loginDiv.classList = "hidden";
 }
-
 
 var populateRegionSelectBox = function () {
     var opt = document.createElement("option");
@@ -44,10 +41,6 @@ var populateRegionSelectBox = function () {
 var populateArtistSelectBox = function (artist) {
     hideLoginDiv();
 
-    // Show welcome text at drop-down page
-    DOMEl.searchPageText.removeAttribute("class", "hidden");
-    DOMEl.searchPageText.setAttribute("class", "center-align");
-
     if (!DOMEl.artSelect.innerHTML.includes(artist)) {
         var opt = document.createElement("option");
         opt.value = artist;
@@ -55,15 +48,15 @@ var populateArtistSelectBox = function (artist) {
         DOMEl.artSelect.appendChild(opt);
     }
 
-    DOMEl.artColumnEl.removeAttribute("class", "hidden");
-    DOMEl.monthColumnEl.removeAttribute("class", "hidden");
-    DOMEl.regionColumnEl.removeAttribute("class", "hidden");
-    DOMEl.optionsDiv.removeAttribute("class", "hidden");
+    DOMEl.artColumnEl.classList.remove("hidden");
+    DOMEl.monthColumnEl.classList.remove("hidden");
+    DOMEl.regionColumnEl.classList.remove("hidden");
+    DOMEl.optionsDiv.classList.remove("hidden");
 }
 
 var displayConcertCards = function (artist, image, show) {
     // show the card container div
-    DOMEl.cardContainerDiv.removeAttribute("class", "hidden");
+    DOMEl.cardContainerDiv.removeAttribute("class");
 
     var venue = show.venue;
     var date = show.date;
