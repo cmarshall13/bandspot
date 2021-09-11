@@ -1,10 +1,10 @@
 var DOMEl = {
     artSelect: document.getElementById("artists-select"),
-    artColumnEl: document.querySelector('.artist-column'),
+    artColumnEl: document.querySelector('#artist-column'),
     monthSelect: document.getElementById("months-select"),
-    monthColumnEl: document.querySelector('.months-column'),
+    monthColumnEl: document.querySelector('#month-column'),
     regionSelect: document.getElementById("region-select"),
-    regionColumnEl: document.querySelector('.regions-column'),
+    regionColumnEl: document.querySelector('#region-column'),
     spotifyBtn: document.getElementById("spotify"),
     loginDiv: document.querySelector("#login"),
     optionsDiv: document.getElementById("options"),

@@ -68,23 +68,12 @@ body {
   flex-wrap: wrap;
 }
 
-#options {
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+#options{
+  padding: 15px;
+  margin-top: 3rem;
 }
 
-.option {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  width: 28%;
-  font-family: 'Rokkitt', serif;
-}
-
-.option .label {
+.select-column .label {
   display: flex;
   justify-content: center;
   width: 100%;
