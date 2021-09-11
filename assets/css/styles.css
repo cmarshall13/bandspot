@@ -81,6 +81,7 @@ body {
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 28%;
+  font-family: 'Rokkitt', serif;
 }
 
 .option .label {
@@ -109,30 +110,22 @@ body {
   margin-bottom: 2rem;
 }
 
-.artists-select option,
-.months-select option,
-.regions-select option {
-  font-family: 'Rokkitt', serif;
-}
 /* *CARD STYLING */
-#card-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 1rem;
+
+#card-container{
+  padding: 15px;
 }
 
 .card {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  overflow: hidden;
-  text-align: center;
-  align-items: center;
-  color: var(--off-white);
+  color: black;
   border: 2px solid var(--light-green);
-  background-size: cover;
   transition: all 0.5s;
+  border-radius: 20px;
+}
+
+.card .card-image img{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .ticket-link {
@@ -154,11 +147,7 @@ body {
   filter: brightness(70%);
 }
 
-.card:hover .card-content h5 {
-  display: none;
-}
-
-.card:hover .card-content .ticket-link {
+.card:hover .ticket-link {
   display: block;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
@@ -168,31 +157,6 @@ body {
   transition: ease-in 0.5s;
   filter: opacity(2);
   display: inline;
-}
-
-.card .card-content {
-  padding: 0;
-}
-
-.card-content h4 {
-  color: black;
-  font-weight: bold;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.card-content h5 {
-  font-weight: bold;
-  font-family: 'Rokkitt', serif;
-  color:black;
-  padding: 4px;
-  border-radius: 5px;
-}
-
-/* overwriting materialize card styling */
-.row .col.s4 {
-  width: 30%;
-  margin-left: 0%;
 }
 
 footer {
@@ -238,12 +202,4 @@ footer {
 /* *HIDDEN UTILITY CLASS */
 .hidden {
   display: none;
-}
-
-@media screen and (max-width: 600px) {
-  #card-container {
-    flex-direction: column;
-  }
-
-  /* TODO: Figure out how to override Materialize width and get card to take up whole row */
 }
