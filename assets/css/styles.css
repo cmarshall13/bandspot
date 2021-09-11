@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@200&display=swap');
-/* Fade in animation */
+@import url("https://fonts.googleapis.com/css2?family=Rokkitt:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap");
 
+/* Fade in animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -12,14 +13,17 @@
 
 /* Color and font variables overriding Materialize */
 :root {
-  --off-white: rgb(222, 228, 223);
+  --off-white: hsl(130, 10%, 88%);
   --spotify-green: hsl(141, 73%, 42%);
   --light-purple: hsl(300, 46%, 75%);
   --error: hsl(0, 81%, 61%);
+  --black: hsl(120, 5%, 4%);
+  --rubik: "Rubik", Arial, Helvetica, sans-serif;
+  --rokkett: "Rokkitt", "Courier New", Courier, monospace;
 }
 
 body {
-  background-color: black;
+  background-color: var(--black);
   position: relative;
   min-height: 95vh;
 }
@@ -44,7 +48,7 @@ body {
   width: 400px;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  font-family: 'Rokkitt', serif;
+  font-family: var(--rubik);
 }
 
 #spotify {
@@ -57,6 +61,7 @@ body {
 .intro-content {
   color: var(--off-white);
   padding: 2rem;
+  font-family: var(--rokkett);
 }
 
 /* *DROP-DOWN STYLING */
@@ -67,7 +72,7 @@ body {
   flex-wrap: wrap;
 }
 
-#options{
+#options {
   padding: 15px;
   margin-top: 3rem;
 }
@@ -78,9 +83,9 @@ body {
   width: 100%;
   font-size: 2rem;
   padding: 1rem 6rem;
-  background: var(--spotify-green); 
+  background: var(--spotify-green);
   color: var(--off-white);
-  font-family: 'Rokkitt', serif;
+  font-family: var(--rubik);
   font-weight: bold;
   border-radius: 25px;
 }
@@ -91,7 +96,7 @@ body {
   margin-top: 3rem;
   height: 4rem;
   color: var(--off-white);
-  background:  black;
+  background: var(--black);
   border-radius: 5px;
   padding: 1rem;
   font-size: 1.5rem;
@@ -100,30 +105,35 @@ body {
 
 /* *CARD STYLING */
 
-#card-container{
+#card-container {
   padding: 15px;
 }
 
 .card {
-  color: black;
-  border: 2px solid var(--light-green);
+  color: var(--black);
+  font-family: var(--rubik);
   transition: all 0.5s;
   border-radius: 20px;
 }
 
-.card .card-image img{
+.card .card-image img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+}
+
+/* Artist name on card */
+.card p:first-of-type {
+  font-weight: bold;
 }
 
 .ticket-link {
   transition: 0.2s;
   background: var(--black);
   border: 4px solid var(--off-white);
-  color: white;
-  font-family: 'Rokkitt', serif;
+  color: var(--off-white);
+  font-family: var(--rokkett);
   padding: 15px;
-  background: black;
+  background: var(--black);
   border-radius: 3px;
   font-size: 2rem;
   display: none;
@@ -136,12 +146,8 @@ body {
 }
 
 .card:hover .ticket-link {
-  display: block;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
-}
-
-.card:hover .ticket-link {
   transition: ease-in 0.5s;
   filter: opacity(2);
   display: inline;
@@ -156,7 +162,7 @@ footer {
 }
 
 .footer-text {
-  font-family: 'Rokkitt', serif;
+  font-family: var(--rokkett);
   font-size: 3rem;
   font-weight: bold;
   color: var(--spotify-green);
@@ -179,7 +185,8 @@ footer {
 
 .modal-close {
   font-size: 1.3rem;
-  background: var(--light-green);
+  background: var(--spotify-green);
+  color: var(--off-white);
   margin-right: 2rem;
 }
 
