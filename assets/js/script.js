@@ -61,7 +61,7 @@ var displayConcertCards = function(artist, image, show){
 
     // create a new column for the card
     var cardCol = document.createElement("div");
-    cardCol.classList = "col s4 m4";
+    cardCol.classList = "col s12 m6 l4";
 
     // create a new card div
     var card = document.createElement("div");
