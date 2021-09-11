@@ -83,6 +83,7 @@ var displayConcertCards = function(artist, image, show){
 
     // card artist is the artists name
     var cardArtist = document.createElement("p");
+    cardArtist.style.fontWeight = "bold";
     cardArtist.textContent = artist;
     cardContent.appendChild(cardArtist);
     
