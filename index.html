@@ -18,121 +18,97 @@
     <title>Bandspot || Find Local Live Shows!</title>
   </head>
 
-  <body class="light-green lighten-5">
-    <div class="container">
-      <div class="logo center-align">
-        <img
-          src="./assets/img/logo.png"
-          alt="Bandspot
-        Logo"
-        />
-      </div>
-
-      <div class="hero-img" hidden>
-        <img src="" alt="" />
-      </div>
-
-      <div id="login" class="row">
-        <div class="col s12 center-align">
-          <h1 class="welcome-text green-text text-darken-1">
-            WELCOME TO
-            <span class="purple-text text-darken-4 bandspot-text"
-              >BANDSPOT!</span
-            >
-          </h1>
-          <h2 class="intro-content">
-            Search for upcoming local shows for your favorite bands. We bring
-            the music to you, tailored to your unique taste, so you can spend
-            less time looking for concerts and more time going to them.
-          </h2>
+  <body class="lighten-5">
+      <header>
+        <div class="container">
+          <div id="logo" class="row">
+            <div class="col s12 m8 offset-m2 l6 offset-l3">
+              <img class="responsive-img" src="./assets/img/logo-light.png" alt="Bandspot Logo"/>
+            </div>
+          </div>
         </div>
+      </header>
 
-        <div class="col s12 center-align">
-          <button
-            class="waves-effect waves-light btn-large"
-            id="spotify"
-            type="submit"
-          >
-            Login with Spotify!
-          </button>
+      <main>
+        <div class="container">
+          <div id="login" class="row">
+            <div class="col s12 m10 offset-m1 l10 offset-l1 center-align">
+              <h4 class="intro-content">
+                Search for upcoming local shows for your favorite bands. We bring
+                the music to you, tailored to your unique taste, so you can spend
+                less time looking for concerts and more time going to them.
+              </h4>
+            </div>
+
+            <div class="col s12 center-align">
+              <button class="waves-effect waves-light btn-large" id="spotify" type="submit">Login with Spotify!</button>
+            </div>
+          </div>
+    
+          <div id="options" class="row hidden">
+            <div id="artist-column" class="col s12 m4 select-column hidden">
+              <label class="label" for="artists" id="artist-label">Artists</label>
+              <select name="artists" class="artists-select" id="artists-select">
+                <option value="All">All</option>
+              </select>
+            </div>
+    
+            <div id="month-column" class="col s12 m4 select-column hidden">
+              <label class="label" for="months">Months</label>
+              <select name="months" class="months-select" id="months-select">
+                <option value="All">All</option>
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+            </div>
+    
+            <div id="region-column" class="col s12 m4 select-column hidden">
+              <label class="label" for="region" id="region-label">Regions</label>
+              <select name="region" class="regions-select" id="region-select">
+                <option value="All">All</option>
+              </select>
+            </div>
+          </div>
+    
+          <div id="card-container" class="row hidden"></div>
+    
+          <!-- Modal Trigger -->
+          <a class="waves-effect waves-light btn modal-trigger hidden" href="#modal1">Modal</a>
+    
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal entire-modal">
+            <!-- Select this element to add error message display with js -->
+            <div class="modal-content"></div>
+    
+            <div class="modal-footer">
+              <a href="#!" class="modal-close waves-effect waves-green btn-flat modal-close">Close</a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="search-page-text hidden">
-        <h3 class="showtime-text">IT'S SHOWTIME!</h3>
-        <p class="select-instruct">
-          These are the upcoming shows in your area from your top artists on
-          Spotify.
-          <br />
-          <br />
-          Filter the shows below for your convenience.
-        </p>
-      </div>
-      <div id="options" class="row options hidden">
-        <div class="col s4 artist-column hidden">
-          <label class="label" for="artists" id="artist-label">Artists:</label>
-          <select name="artists" class="artists-select" id="artists-select">
-            <option value="All">All</option>
-          </select>
+      </main>
+
+      <footer class="page-footer darken-5">
+        <div class="container">
+            <div class="row center-align">
+                <div class="col s12">
+                    <p class="footer-text">
+                        <span class="footer-span">Made</span> for
+                        <span class="footer-span">Music Enthusiasts</span>
+                        <span class="everywhere">Everywhere</span>
+                    </p>
+                </div>
+            </div>
         </div>
-
-        <div class="col s4 months-column hidden">
-          <label class="label" for="months">Months:</label>
-          <select name="months" class="months-select" id="months-select">
-            <option value="All">All</option>
-            <option value="01">January</option>
-            <option value="02">February</option>
-            <option value="03">March</option>
-            <option value="04">April</option>
-            <option value="05">May</option>
-            <option value="06">June</option>
-            <option value="07">July</option>
-            <option value="08">August</option>
-            <option value="09">September</option>
-            <option value="10">October</option>
-            <option value="11">November</option>
-            <option value="12">December</option>
-          </select>
-        </div>
-
-        <div class="col s4 regions-column hidden">
-          <label class="label" for="region" id="region-label">Regions:</label>
-          <select name="region" class="regions-select" id="region-select">
-            <option value="All">All</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="row">
-        <div id="card-container" class="col s12 m7 hidden"></div>
-      </div>
-
-      <!-- Modal Trigger -->
-      <a
-        class="waves-effect waves-light btn modal-trigger hidden"
-        href="#modal1"
-        >Modal</a
-      >
-
-      <!-- Modal Structure -->
-      <div id="modal1" class="modal entire-modal">
-        <!-- Select this element to add error message display with js -->
-        <div class="modal-content"></div>
-
-        <div class="modal-footer">
-          <a
-            href="#!"
-            class="modal-close waves-effect waves-green btn-flat modal-close"
-            >Close</a
-          >
-        </div>
-      </div>
-
-      <footer class="purple darken-4">
-        <p class="center-align light-green-text text-lighten-5 footer-text">
-          <span class="footer-span">Made</span> for
-          <span class="footer-span">Music Enthusiasts</span>
-          <span class="everywhere">Everywhere</span>
-        </p>
       </footer>
     </div>
 

@@ -1,14 +1,12 @@
 var DOMEl = {
     artSelect: document.getElementById("artists-select"),
-    artColumnEl: document.querySelector('.artist-column'),
+    artColumnEl: document.querySelector('#artist-column'),
     monthSelect: document.getElementById("months-select"),
-    monthColumnEl: document.querySelector('.months-column'),
+    monthColumnEl: document.querySelector('#month-column'),
     regionSelect: document.getElementById("region-select"),
-    regionColumnEl: document.querySelector('.regions-column'),
+    regionColumnEl: document.querySelector('#region-column'),
     spotifyBtn: document.getElementById("spotify"),
     loginDiv: document.querySelector("#login"),
-    searchPageText: document.querySelector('.search-page-text'),
-    spotifySpan: document.querySelector('.spotify-username'),
     optionsDiv: document.getElementById("options"),
     cardContainerDiv: document.getElementById("card-container"),
 }
@@ -17,6 +15,12 @@ var hideLoginDiv = function () {
     DOMEl.loginDiv.classList = "hidden";
 }
 
+var showSelectBoxes = function(){
+    DOMEl.artColumnEl.classList.remove("hidden");
+    DOMEl.monthColumnEl.classList.remove("hidden");
+    DOMEl.regionColumnEl.classList.remove("hidden");
+    DOMEl.optionsDiv.classList.remove("hidden");
+}
 
 var populateRegionSelectBox = function () {
     var opt = document.createElement("option");
@@ -26,17 +30,14 @@ var populateRegionSelectBox = function () {
     DOMEl.regionSelect.selectedIndex = 1;
 
     for (var e of eventsArray) {
-        // check if that event object has any shows
-        if (e.shows.length > 0) {
-            var region = e.shows[0].region;
-            // If the current region does not match any of the options
-            if (!DOMEl.regionSelect.innerHTML.includes(region)) {
-                // Create and append the new region to the select box
-                var opt = document.createElement("option");
-                opt.value = region;
-                opt.textContent = region;
-                DOMEl.regionSelect.appendChild(opt);
-            }
+        var region = e.shows[0].region;
+        // If the current region does not match any of the options
+        if (!DOMEl.regionSelect.innerHTML.includes(region)) {
+            // Create and append the new region to the select box
+            var opt = document.createElement("option");
+            opt.value = region;
+            opt.textContent = region;
+            DOMEl.regionSelect.appendChild(opt);
         }
     }
 }
@@ -44,71 +45,84 @@ var populateRegionSelectBox = function () {
 var populateArtistSelectBox = function (artist) {
     hideLoginDiv();
 
-    // Show welcome text at drop-down page
-    DOMEl.searchPageText.removeAttribute("class", "hidden");
-    DOMEl.searchPageText.setAttribute("class", "center-align");
-
     if (!DOMEl.artSelect.innerHTML.includes(artist)) {
         var opt = document.createElement("option");
         opt.value = artist;
         opt.textContent = artist;
         DOMEl.artSelect.appendChild(opt);
     }
-
-    DOMEl.artColumnEl.removeAttribute("class", "hidden");
-    DOMEl.monthColumnEl.removeAttribute("class", "hidden");
-    DOMEl.regionColumnEl.removeAttribute("class", "hidden");
-    DOMEl.optionsDiv.removeAttribute("class", "hidden");
+    showSelectBoxes();
 }
 
-var displayConcertCards = function (artist, image, show) {
-    // show the card container div
-    DOMEl.cardContainerDiv.removeAttribute("class", "hidden");
+var displayConcertCards = function(artist, image, show){
+    DOMEl.cardContainerDiv.classList.remove("hidden");
+    var ticketsAvailable = show.tickets;
+    var ticketsBuyLink = show.buyLink;
 
-    var venue = show.venue;
-    var date = show.date;
-    var time = show.time;
-    var location = show.location;
+    // create a new column for the card
+    var cardCol = document.createElement("div");
+    cardCol.classList = "col s12 m6 l4";
 
-    var card = document.createElement("a");
-    card.setAttribute("class", "card small col s4");
-    card.style.backgroundImage = 'url(' + image + ')';
-    card.href = "";
+    // create a new card div
+    var card = document.createElement("div");
+    card.setAttribute("class", "card");
 
-    var cardDiv = document.createElement("div");
+    // card img is the artists image
+    var cardImg = document.createElement("div");
+    cardImg.classList.add("card-image");
+    cardImg.classList.add("hide-on-small-only");
 
-    var cardContentDiv = document.createElement("div");
-    cardContentDiv.setAttribute("class", "card-content");
+    var img = document.createElement("img");
+    img.src = image;
 
-    var cardArtist = document.createElement("h4");
+    cardImg.appendChild(img);
+    card.appendChild(cardImg);
+
+    // card content contains all the concert information
+    var cardContent = document.createElement("div");
+    cardContent.classList.add("card-content");
+
+    // card artist is the artists name
+    var cardArtist = document.createElement("p");
     cardArtist.textContent = artist;
+    cardContent.appendChild(cardArtist);
+    
+    // card venue is the venue of the concert
+    var cardVenue = document.createElement("p");
+    cardVenue.textContent = show.venue;
+    cardContent.appendChild(cardVenue);
 
-    var cardDate = document.createElement("h5");
-    cardDate.textContent = date;
+    // card location is the state/region of the concert
+    var cardLocation = document.createElement("p");
+    cardLocation.textContent = show.location;
+    cardContent.appendChild(cardLocation);
 
-    var cardTime = document.createElement("h5");
-    cardTime.textContent = time;
+    // card date is the date of the concert
+    var cardDate = document.createElement("p");
+    cardDate.textContent = show.date;
+    cardContent.appendChild(cardDate);
 
-    var cardVenue = document.createElement("h5");
-    cardVenue.textContent = venue;
+    // Create a ticket-buying text-link
+    var cardTickets = document.createElement("a");
+    cardTickets.classList= "ticket-link";
+    cardTickets.target = "_blank";
 
-    var cardLocation = document.createElement("h5");
-    cardLocation.textContent = location;
+    if (ticketsAvailable === 'available') {
+        cardTickets.textContent = 'BUY TICKETS';
+        cardTickets.href = ticketsBuyLink;
+        cardTickets.setAttribute("target", "_blank");
+    }else{
+        cardTickets.textContent = 'TICKETS UNAVAILABLE';
+    }
+    cardContent.appendChild(cardTickets);
 
-    // append concert data to content div
-    cardContentDiv.appendChild(cardArtist);
-    cardContentDiv.appendChild(cardDate);
-    cardContentDiv.appendChild(cardTime);
-    // cardContentDiv.appendChild(cardVenue);
-    cardContentDiv.appendChild(cardLocation);
+    // append card content div to main card div
+    card.appendChild(cardContent);
+    // append card to card column div
+    cardCol.appendChild(card);
 
-    // append content div to card div
-    cardDiv.appendChild(cardContentDiv);
-
-    card.appendChild(cardDiv);
-
-    // append card to container div
-    DOMEl.cardContainerDiv.append(card);
+    // append card column to card container div
+    DOMEl.cardContainerDiv.appendChild(cardCol);
 }
 
 var filterLocation = function () {
@@ -134,36 +148,33 @@ var filter = function (artistFilter, monthFilter, regionFilter) {
     for (var events of eventsArray) {
         var artist = events.artist;
         var image = events.image;
-        // check if this artist has any shows
-        if (events.shows.length > 0) {
-            // loop thru the shows array
-            for (var show of events.shows) {
-                var month = show.date.substring(0, 2);
-                var region = show.region;
-                // check if all filters are "All"
-                if (artistFilter === "All" && monthFilter === "All" && regionFilter === "All") {
-                    displayConcertCards(artist, image, show);
-                    // check if artist & region are "All"
-                } else if (artistFilter === "All" && month === monthFilter && regionFilter === "All") {
-                    displayConcertCards(artist, image, show);
-                    // check if month & region are "All"
-                } else if (artist === artistFilter && monthFilter === "All" && regionFilter === "All") {
-                    displayConcertCards(artist, image, show);
-                    // check if artist & month are "All"
-                } else if (artistFilter === "All" && monthFilter === "All" && region === regionFilter) {
-                    displayConcertCards(artist, image, show);
-                    // check if all are variable
-                } else if (artist === artistFilter && month === monthFilter && region === regionFilter) {
-                    displayConcertCards(artist, image, show);
+        // loop thru the shows array
+        for (var show of events.shows) {
+            var month = show.date.substring(0, 2);
+            var region = show.region;
+            // check if all filters are "All"
+            if (artistFilter === "All" && monthFilter === "All" && regionFilter === "All") {
+                displayConcertCards(artist, image, show);
+                // check if artist & region are "All"
+            } else if (artistFilter === "All" && month === monthFilter && regionFilter === "All") {
+                displayConcertCards(artist, image, show);
+                // check if month & region are "All"
+            } else if (artist === artistFilter && monthFilter === "All" && regionFilter === "All") {
+                displayConcertCards(artist, image, show);
+                // check if artist & month are "All"
+            } else if (artistFilter === "All" && monthFilter === "All" && region === regionFilter) {
+                displayConcertCards(artist, image, show);
+                // check if all are variable
+            } else if (artist === artistFilter && month === monthFilter && region === regionFilter) {
+                displayConcertCards(artist, image, show);
                 // check if month "All"
-                } else if (artist === artistFilter && monthFilter === "All" && region === regionFilter) {
-                    displayConcertCards(artist, image, show);
+            } else if (artist === artistFilter && monthFilter === "All" && region === regionFilter) {
+                displayConcertCards(artist, image, show);
                 // check if region is "All"
-                } else if (artist === artistFilter && month === monthFilter && regionFilter === "All") {
-                    displayConcertCards(artist, image, show);
-                } else if (artistFilter === "All" && month === monthFilter && region === regionFilter) {
-                    displayConcertCards(artist, image, show);
-                }
+            } else if (artist === artistFilter && month === monthFilter && regionFilter === "All") {
+                displayConcertCards(artist, image, show);
+            } else if (artistFilter === "All" && month === monthFilter && region === regionFilter) {
+                displayConcertCards(artist, image, show);
             }
         }
     }

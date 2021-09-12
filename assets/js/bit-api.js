@@ -28,6 +28,7 @@ var saveConcertData = function (artist, data, index) {
       populateArtistSelectBox(artist);
       bandImage = data[0].artist.image_url;
       eventsArray.push({ artist: artist, image: bandImage, shows: [] });
+
    }
    // Build event data object
    for (var d of data) {
@@ -38,6 +39,16 @@ var saveConcertData = function (artist, data, index) {
       date = `${date.substring(5, 7)}/${date.substring(8, 10)}/${date.substring(0, 4)}`;
       // Format time as HH:MM for card display (removing seconds)
       time = time.substring(0, 5);
-      eventsArray[index].shows.push({ date: date, time: time, venue: d.venue.name, location: d.venue.location, region: d.venue.region });
+      // Get ticketing data
+      if (d.offers && d.offers[0]) {
+         var ticketStatus = d.offers[0].status;
+         var ticketUrl = d.offers[0].url;
+      } else {
+         var ticketStatus = "unavailable";
+         var ticketUrl = "";
+      }
+
+      eventsArray[index].shows.push({ date: date, time: time, venue: d.venue.name, location: d.venue.location, region: d.venue.region, tickets: ticketStatus, buyLink: ticketUrl });
+
    }
 }

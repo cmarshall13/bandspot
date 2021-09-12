@@ -1,91 +1,63 @@
-@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rokkitt:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap");
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 /* Color and font variables overriding Materialize */
 :root {
-  --off-white: rgb(222, 228, 223);
-  --gray: rgb(201, 198, 198);
-  --light-green: hsl(120, 42%, 75%);
+  --off-white: hsl(130, 10%, 88%);
   --spotify-green: hsl(141, 73%, 42%);
-  --black-green: hsl(143, 85%, 8%);
   --light-purple: hsl(300, 46%, 75%);
   --error: hsl(0, 81%, 61%);
-  --font-gothic: "Gothic A1", Arial, sans-serif;
-  --font-secondary: "Catamaran";
+  --black: hsl(120, 5%, 4%);
+  --rubik: "Rubik", Arial, Helvetica, sans-serif;
+  --rokkett: "Rokkitt", "Courier New", Courier, monospace;
 }
 
 body {
-  font-family: var(--font-gothic);
+  background-color: var(--black);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 .container {
   max-width: 90%;
   width: 90%;
 }
-/* *HIDDEN UTILITY CLASS */
-.hidden {
-  display: none;
-}
 
-.logo img {
-  height: 300px;
-  width: 100%;
-  background: black;
-}
-
-#login {
-  margin-top: 1rem;
+#logo img {
+  padding-top: 20px;
 }
 
 /* *SPOTIFY BUTTON (overriding Materialize) */
 .btn-large {
   height: 100px;
-  width: 400px;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-#spotify {
-  background-color: var(--spotify-green);
-  font-family: var(--font-gothic);
-  font-size: 2rem;
   font-weight: bold;
+  font-family: var(--rubik);
+  margin-bottom: 1rem;
+  font-family: var(--rubik);
+  background-color: var(--spotify-green);
 }
 
 /* *LANDING PAGE TEXT */
-.welcome-text {
-  font-weight: bold;
-  font-size: 4rem;
-}
-
 .intro-content {
-  padding: 2rem;
-}
-
-/* *DROP-DOWN PAGE WELCOME TEXT STYLING */
-
-.showtime-text {
-  margin-top: 2rem;
-  font-size: 3rem;
-  font-family: var(--font-secondary);
-  color: var(--black-green);
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-.spotify-username {
-  font-family: var(--font-secondary);
-  color: var(--spotify-green);
-  font-weight: bold;
-}
-
-.select-instruct {
-  background: var(--light-green);
-  color: var(--black-green);
-  border-radius: 5px;
-  padding: 2rem;
-  margin-top: 3rem;
-  font-size: 1.5rem;
+  color: var(--off-white);
+  padding: 2rem 0;
+  font-family: var(--rokkett);
 }
 
 /* *DROP-DOWN STYLING */
@@ -93,24 +65,23 @@ body {
 #artists-select,
 #region-select {
   display: flex;
+  flex-wrap: wrap;
 }
 
 #options {
-  padding: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 2rem;
+  padding: 15px;
+  margin-top: 3rem;
 }
 
-.label {
-  align-items: center;
-  text-decoration: underline;
+.select-column .label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   font-size: 2rem;
   padding: 1rem 6rem;
-  background: rgb(165, 218, 165);
-  color: var(--black-green);
-  font-family: var(--font-secondary);
+  background: var(--spotify-green);
+  color: var(--off-white);
+  font-family: var(--rubik);
   font-weight: bold;
   border-radius: 25px;
 }
@@ -120,98 +91,107 @@ body {
 .regions-select {
   margin-top: 3rem;
   height: 4rem;
-  background: var(--light-purple);
+  color: var(--off-white);
+  background: var(--black);
   border-radius: 5px;
   padding: 1rem;
   font-size: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.artists-select option,
-.months-select option,
-.regions-select option {
-  font-family: var(--font-secondary);
-}
-
 /* *CARD STYLING */
+
 #card-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 1rem;
+  padding: 15px;
 }
 
 .card {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  color: var(--black);
+  font-family: var(--rubik);
+  transition: all 0.5s;
+  border-radius: 20px;
+}
+
+.card .card-image img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* Artist name on card */
+.card p:first-of-type {
+  font-weight: bold;
+}
+
+.ticket-link {
+  transition: 0.2s;
+  background: var(--black);
+  border: 4px solid var(--off-white);
+  color: var(--off-white);
+  font-family: var(--rokkett);
+  padding: 15px;
+  background: var(--black);
+  border-radius: 3px;
+  font-size: 2rem;
+  display: none;
   text-align: center;
-  align-items: center;
-  color: var(--black-green);
-  border: 2px solid var(--light-green);
-  background-size: cover;
+  margin-top: 1rem;
 }
 
-.card .card-content {
-  padding: 0;
+.card-content {
+  display: flex;
+  flex-direction: column;
 }
 
-.card-content h4 {
-  color: var(--black-green);
-  background: var(--light-green);
-  font-weight: bold;
-  padding: 5px;
-  border-radius: 5px;
+/* HIDING CARD ELEMENTS AND SHOWING TICKET LINK */
+.card:hover {
+  transition: 0.5s;
+  filter: brightness(70%);
 }
 
-.card-content h5 {
-  background: var(--gray);
-  font-weight: bold;
-  font-family: var(--font-secondary);
-  color: var(--black-green);
-  padding: 4px;
-  border-radius: 5px;
+.card:hover .ticket-link {
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+  transition: ease-in 0.5s;
+  filter: opacity(2);
+  display: inline;
 }
 
-/* overwriting materialize card styling */
-.row .col.s4 {
-  width: 30%;
-  margin-left: 0%;
-}
-
-footer {
-  bottom: 0;
-  position: relative;
-  border-radius: 5px;
-  box-shadow: 0px -5px 10px -2px var(--black-green);
+.page-footer{
+  background-color: var(--black);
 }
 
 .footer-text {
-  padding: 2rem;
-  font-size: 3rem;
+  font-family: var(--rokkett);
+  font-size: 2rem;
   font-weight: bold;
+  color: var(--spotify-green);
 }
 
 .footer-span {
-  color: var(--light-green);
+  color: var(--off-white);
 }
 
 .everywhere {
-  color: var(--light-purple);
+  color: var(--spotify-green);
 }
 
 /* *MODAL STYLING */
-
 .entire-modal {
   opacity: 0.7;
 }
 
 .modal-close {
   font-size: 1.3rem;
-  background: var(--light-green);
+  background: var(--spotify-green);
+  color: var(--off-white);
   margin-right: 2rem;
 }
 
 .modal-texts {
   color: var(--error);
+}
+
+/* *HIDDEN UTILITY CLASS */
+.hidden {
+  display: none;
 }
