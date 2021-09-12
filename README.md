@@ -1,6 +1,8 @@
 # BANDSpot: Your Live Concert Connection
 
-<!-- TODO: Screenshots can go here -->
+<img src ='./assets/img/landing.png' alt='Landing page of application'>
+
+<img src ='./assets/img/event-hover.png' alt='Landing page of application' height='300px'>
 
 ## Description
 
