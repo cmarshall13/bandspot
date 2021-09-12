@@ -49,6 +49,6 @@ Go to the [repository](https://github.com/trippjoe/bandspot) and ``` git clone `
 [Joe Tripp](https://github.com/trippjoe) 
 <!-- Short statement here -->
 
-[Corinne Marshall](https://github.com/cmarshall13)
-<!-- Short statement here -->
+[Corinne Marshall](https://github.com/cmarshall13) is an up-and-coming Full-Stack Web Developer with a passion for learning new and exciting technologies. Please direct and questions, comments, or confessions to <corinnelynette@yahoo.com> 
+
 
