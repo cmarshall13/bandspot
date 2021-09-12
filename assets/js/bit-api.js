@@ -40,10 +40,10 @@ var saveConcertData = function (artist, data, index) {
       // Format time as HH:MM for card display (removing seconds)
       time = time.substring(0, 5);
       // Get ticketing data
-      if(d.offers && d.offers[0].length > 0){
+      if (d.offers && d.offers[0]) {
          var ticketStatus = d.offers[0].status;
          var ticketUrl = d.offers[0].url;
-      }else{
+      } else {
          var ticketStatus = "unavailable";
          var ticketUrl = "";
       }
