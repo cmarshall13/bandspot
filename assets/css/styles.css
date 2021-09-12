@@ -24,14 +24,18 @@
 
 body {
   background-color: var(--black);
-  position: relative;
-  min-height: 95vh;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 .container {
   max-width: 90%;
   width: 90%;
-  min-height: 90vh;
 }
 
 #logo img {
@@ -156,20 +160,15 @@ body {
   display: inline;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 90%;
-  height: 60px;
-  padding-top: 50px;
+.page-footer{
+  background-color: var(--black);
 }
 
 .footer-text {
   font-family: var(--rokkett);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: var(--spotify-green);
-  margin: 0px;
 }
 
 .footer-span {
@@ -181,7 +180,6 @@ footer {
 }
 
 /* *MODAL STYLING */
-
 .entire-modal {
   opacity: 0.7;
 }
