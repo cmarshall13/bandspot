@@ -32,6 +32,7 @@ var saveConcertData = function (artist, data, index) {
    }
    // Build event data object
    for (var d of data) {
+      console.log(d);
       // Split datetime into two strings representing date and time
       var date = d.datetime.split('T')[0];
       var time = d.datetime.split('T')[1];
@@ -40,14 +41,11 @@ var saveConcertData = function (artist, data, index) {
       // Format time as HH:MM for card display (removing seconds)
       time = time.substring(0, 5);
       // Get ticketing data
-      if(d.offers[0].status){
+      if(d.offers[0]){
          var ticketStatus = d.offers[0].status;
-      }else{
-         var ticketStatus = "unavailable";
-      }
-      if(d.offers[0].url){
          var ticketUrl = d.offers[0].url;
       }else{
+         var ticketStatus = "unavailable";
          var ticketUrl = "";
       }
 
