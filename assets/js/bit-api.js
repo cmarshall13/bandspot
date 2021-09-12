@@ -46,7 +46,6 @@ var saveConcertData = function (artist, data, index) {
       }else{
          var ticketStatus = "unavailable";
          var ticketUrl = "";
-         console.log(d);
       }
 
       eventsArray[index].shows.push({ date: date, time: time, venue: d.venue.name, location: d.venue.location, region: d.venue.region, tickets: ticketStatus, buyLink: ticketUrl });
