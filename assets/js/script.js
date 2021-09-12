@@ -57,7 +57,6 @@ var populateArtistSelectBox = function (artist) {
 var displayConcertCards = function(artist, image, show){
     DOMEl.cardContainerDiv.classList.remove("hidden");
     var ticketsAvailable = show.tickets;
-    console.log(ticketsAvailable);
     var ticketsBuyLink = show.buyLink;
 
     // create a new column for the card
