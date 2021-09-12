@@ -45,16 +45,12 @@ body {
 /* *SPOTIFY BUTTON (overriding Materialize) */
 .btn-large {
   height: 100px;
-  width: 400px;
   font-size: 1.5rem;
+  font-weight: bold;
+  font-family: var(--rubik);
   margin-bottom: 1rem;
   font-family: var(--rubik);
-}
-
-#spotify {
   background-color: var(--spotify-green);
-  font-size: 2rem;
-  font-weight: bold;
 }
 
 /* *LANDING PAGE TEXT */
