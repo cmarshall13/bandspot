@@ -1,13 +1,10 @@
-# BANDSpot: Your Live Concert Connection Application
-
-![GitHub repo size](https://img.shields.io/github/repo-size/trippjoe/bandspot?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/trippjoe/bandspot?color=red&style=flat-square)
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS]( https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![JS](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+# BANDSpot: Your Live Concert Connection
 
 <!-- TODO: Screenshots can go here -->
 
 ## Description
 
-BANDSpot is an application which allows you to login in through your Spotify account and be shown the upcoming concerts happening by your top artists in your location. Links to buy tickets directly from the Bandsintown appear on each event listing, and the user can filter shows further by month, artist, or region. An effortless and personalized user experience is paramount as we bring the information to you, so as to feed your musical passions and endeavours.
+BANDSpot is an application which allows you to login in through your Spotify account and be shown the upcoming concerts happening by your top artists in your location. Links to buy tickets directly from Bandsintown appear on each event listing, and the user can filter shows further by month, artist, or region. An effortless and personalized user experience is paramount as we bring the information to you, so as to feed your musical passions and endeavours.
 
 ### This project can be found:
 
